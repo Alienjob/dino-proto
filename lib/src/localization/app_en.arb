@@ -1,0 +1,6 @@
+{
+  "appTitle": "dino_proto",
+  "@appTitle": {
+    "description": "Prototype of a Dino javascript task management application"
+  }
+}
