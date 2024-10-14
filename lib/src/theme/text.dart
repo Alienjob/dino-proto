@@ -16,4 +16,9 @@ class AppTextStyles {
   TextStyle get body => const TextStyle(
         fontSize: 14,
       );
+
+  TextStyle get buttonTitle => const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      );
 }

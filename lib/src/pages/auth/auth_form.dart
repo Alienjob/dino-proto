@@ -1,5 +1,6 @@
 import 'package:dino_proto/src/theme/app_colors.dart';
 import 'package:dino_proto/src/pages/auth/bloc/auth_page_bloc.dart';
+import 'package:dino_proto/src/theme/buttons.dart';
 import 'package:dino_proto/src/theme/inputs.dart';
 import 'package:dino_proto/src/theme/text.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class _AuthFormState extends State<AuthForm> {
     final appBarHeight = screenHeight * 0.3;
     final screenWidth = MediaQuery.of(context).size.width;
     const inputHeight = 56.0;
-    const cartHeight = inputHeight * 5 + 16 * 4 + 48 + 24;
+    const cartHeight = inputHeight * 5 + 16 * 4 + 48 + 32;
     return CustomScrollView(
       slivers: [
         SliverAppBar(
@@ -134,12 +135,11 @@ class LoginForm extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const SizedBox(height: 10),
-              Text(
-                'Welcome back!',
-                style: text.title,
-              ),
-              const SizedBox(height: 30),
+              SizedBox(
+                  height: 56,
+                  width: double.infinity,
+                  child:
+                      Center(child: Text('Welcome back!', style: text.title))),
               TextFormField(
                 initialValue: email,
                 onChanged: (value) =>
@@ -158,14 +158,24 @@ class LoginForm extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () => authBloc.add(AuthPageEvent.submit()),
-                child: const Text('Sign In'),
+              SizedBox(
+                width: double.infinity,
+                height: buttonHeight,
+                child: ElevatedButton(
+                  style: appElevatedButton,
+                  onPressed: () => authBloc.add(AuthPageEvent.submit()),
+                  child: const Text('LOGIN'),
+                ),
               ),
-              TextButton(
-                  onPressed: onHaveAccount,
-                  child: const Text('Don\'t have an account?\nRegister here',
-                      textAlign: TextAlign.center)),
+              const SizedBox(height: 16),
+              SizedBox(
+                height: buttonHeight,
+                width: double.infinity,
+                child: TextButton(
+                    onPressed: onHaveAccount,
+                    child: const Text('Don\'t have an account?\nRegister here',
+                        textAlign: TextAlign.center)),
+              ),
             ],
           ),
         ),
@@ -210,12 +220,11 @@ class RegisterForm extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const SizedBox(height: 10),
-              Text(
-                'Create an account',
-                style: text.title,
-              ),
-              const SizedBox(height: 30),
+              SizedBox(
+                  height: 56,
+                  width: double.infinity,
+                  child: Center(
+                      child: Text('Create an account', style: text.title))),
               TextFormField(
                 initialValue: email,
                 onChanged: (value) =>
@@ -234,10 +243,16 @@ class RegisterForm extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () => authBloc.add(AuthPageEvent.submit()),
-                child: const Text('Sign Up'),
+              SizedBox(
+                width: double.infinity,
+                height: buttonHeight,
+                child: ElevatedButton(
+                  onPressed: () => authBloc.add(AuthPageEvent.submit()),
+                  style: appElevatedButton,
+                  child: const Text('REGISTER'),
+                ),
               ),
+              const SizedBox(height: 16),
               TextButton(
                   onPressed: onNeedAccount,
                   child: const Text('Already have an account?\nLogin here',
