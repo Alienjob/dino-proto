@@ -112,8 +112,8 @@ class __$$UnexpectedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnexpectedImpl implements _Unexpected {
-  _$UnexpectedImpl(this.message);
+class _$UnexpectedImpl extends _Unexpected {
+  _$UnexpectedImpl(this.message) : super._();
 
   @override
   final String message;
@@ -209,8 +209,9 @@ class _$UnexpectedImpl implements _Unexpected {
   }
 }
 
-abstract class _Unexpected implements Failure {
+abstract class _Unexpected extends Failure {
   factory _Unexpected(final String message) = _$UnexpectedImpl;
+  _Unexpected._() : super._();
 
   String get message;
   @JsonKey(ignore: true)
@@ -236,8 +237,8 @@ class __$$UnauthorizedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnauthorizedImpl implements _Unauthorized {
-  _$UnauthorizedImpl();
+class _$UnauthorizedImpl extends _Unauthorized {
+  _$UnauthorizedImpl() : super._();
 
   @override
   String toString() {
@@ -322,8 +323,9 @@ class _$UnauthorizedImpl implements _Unauthorized {
   }
 }
 
-abstract class _Unauthorized implements Failure {
+abstract class _Unauthorized extends Failure {
   factory _Unauthorized() = _$UnauthorizedImpl;
+  _Unauthorized._() : super._();
 }
 
 /// @nodoc
@@ -359,9 +361,10 @@ class __$$ValidadtionFailureImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ValidadtionFailureImpl implements _ValidadtionFailure {
+class _$ValidadtionFailureImpl extends _ValidadtionFailure {
   _$ValidadtionFailureImpl({required final List<ValidationError> errors})
-      : _errors = errors;
+      : _errors = errors,
+        super._();
 
   final List<ValidationError> _errors;
   @override
@@ -464,9 +467,10 @@ class _$ValidadtionFailureImpl implements _ValidadtionFailure {
   }
 }
 
-abstract class _ValidadtionFailure implements Failure {
+abstract class _ValidadtionFailure extends Failure {
   factory _ValidadtionFailure({required final List<ValidationError> errors}) =
       _$ValidadtionFailureImpl;
+  _ValidadtionFailure._() : super._();
 
   List<ValidationError> get errors;
   @JsonKey(ignore: true)

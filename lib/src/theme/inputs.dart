@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 final appInputDecoration = InputDecoration(
   filled: true,
   fillColor: Colors.white,
+  floatingLabelBehavior: FloatingLabelBehavior.never,
   focusedBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(20.0),
     borderSide: BorderSide(

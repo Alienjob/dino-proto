@@ -1,3 +1,4 @@
+import 'package:dino_proto/src/model/enum/auth_form_mode.dart';
 import 'package:dino_proto/src/theme/app_colors.dart';
 import 'package:dino_proto/src/pages/auth/bloc/auth_page_bloc.dart';
 import 'package:dino_proto/src/theme/buttons.dart';
@@ -17,84 +18,109 @@ class AuthForm extends StatefulWidget {
   State<AuthForm> createState() => _AuthFormState();
 }
 
-class _AuthFormState extends State<AuthForm> {
-  PageController _pageController = PageController();
+class _AuthFormState extends State<AuthForm> with TickerProviderStateMixin {
+  late TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(
-      initialPage: 0,
+    _tabController = TabController(
+      initialIndex: 0,
+      length: AuthFormMode.values.length,
+      vsync: this,
     );
   }
 
   @override
   void dispose() {
-    _pageController.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 
   void _goToLogin() {
-    _pageController.animateToPage(0,
+    _tabController.animateTo(0,
         duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
     FocusScope.of(context).unfocus();
   }
 
   void _goToRegister() {
-    _pageController.animateToPage(1,
+    _tabController.animateTo(1,
         duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
     FocusScope.of(context).unfocus();
   }
 
+  void _onTabChanged(int index) {
+    final authBloc = context.read<AuthPageBloc>();
+    FocusScope.of(context).unfocus();
+    authBloc.add(AuthPageEvent.modeChanged(
+      AuthFormMode.values[index],
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
-    final authBloc = context.read<AuthPageBloc>();
     final screenHeight = MediaQuery.of(context).size.height;
     final appBarHeight = screenHeight * 0.3;
     final screenWidth = MediaQuery.of(context).size.width;
     const inputHeight = 56.0;
     const cartHeight = inputHeight * 5 + 16 * 4 + 48 + 32;
-    return CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          backgroundColor: AppColors.blue,
-          expandedHeight: appBarHeight,
-          toolbarHeight: appBarHeight,
-          title: SvgPicture.asset(
-              height: appBarHeight,
-              'assets/images/illustrations/dino_with_star.svg'),
-        ),
-        SliverList(
-          delegate: SliverChildListDelegate(
-            [
-              SizedBox(
-                width: screenWidth,
-                height: cartHeight,
-                child: PageView(
-                  onPageChanged: (_) {
-                    FocusScope.of(context).unfocus();
-                  },
-                  controller: _pageController,
-                  children: [
-                    LoginForm(
-                        screenWidth: screenWidth,
-                        email: widget.email,
-                        authBloc: authBloc,
-                        password: widget.password,
-                        onHaveAccount: _goToRegister),
-                    RegisterForm(
-                        screenWidth: screenWidth,
-                        email: widget.email,
-                        authBloc: authBloc,
-                        password: widget.password,
-                        onNeedAccount: _goToLogin),
-                  ],
-                ),
+    const itemExtent = inputHeight + 16;
+    return NestedScrollView(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return <Widget>[
+          SliverOverlapAbsorber(
+            handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+            sliver: SliverAppBar(
+              backgroundColor: AppColors.blue,
+              expandedHeight: appBarHeight,
+              toolbarHeight: appBarHeight,
+              title: SvgPicture.asset(
+                  height: appBarHeight,
+                  'assets/images/illustrations/dino_with_star.svg'),
+            ),
+          )
+        ];
+      },
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          ...AuthFormMode.values.map((mode) {
+            return SafeArea(
+              top: false,
+              bottom: false,
+              child: Builder(
+                builder: (context) {
+                  return CustomScrollView(
+                    key: PageStorageKey<AuthFormMode>(mode),
+                    slivers: [
+                      SliverOverlapInjector(
+                        handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
+                            context),
+                      ),
+                      SliverPadding(
+                        padding: const EdgeInsets.all(8.0),
+                        sliver: SliverToBoxAdapter(
+                          child: (mode == AuthFormMode.register)
+                              ? RegisterForm(
+                                  screenWidth: screenWidth,
+                                  email: widget.email,
+                                  password: widget.password,
+                                  onNeedAccount: _goToLogin)
+                              : LoginForm(
+                                  screenWidth: screenWidth,
+                                  email: widget.email,
+                                  password: widget.password,
+                                  onHaveAccount: _goToRegister),
+                        ),
+                      ),
+                    ],
+                  );
+                },
               ),
-            ],
-          ),
-        ),
-      ],
+            );
+          }),
+        ],
+      ),
     );
   }
 }
@@ -104,14 +130,13 @@ class LoginForm extends StatelessWidget {
     super.key,
     required this.screenWidth,
     required this.email,
-    required this.authBloc,
     required this.password,
     required this.onHaveAccount,
   });
 
   final double screenWidth;
   final String? email;
-  final AuthPageBloc authBloc;
+
   final String? password;
   final void Function() onHaveAccount;
 
@@ -142,8 +167,9 @@ class LoginForm extends StatelessWidget {
                       Center(child: Text('Welcome back!', style: text.title))),
               TextFormField(
                 initialValue: email,
-                onChanged: (value) =>
-                    authBloc.add(AuthPageEvent.mailChanged(value)),
+                onChanged: (value) => context
+                    .read<AuthPageBloc>()
+                    .add(AuthPageEvent.mailChanged(value)),
                 decoration: appInputDecoration.copyWith(
                   labelText: 'Email',
                 ),
@@ -151,8 +177,10 @@ class LoginForm extends StatelessWidget {
               const SizedBox(height: 16),
               TextFormField(
                 initialValue: password,
-                onChanged: (value) =>
-                    authBloc.add(AuthPageEvent.passwordChanged(value)),
+                onChanged: (value) => context
+                    .read<AuthPageBloc>()
+                    .add(AuthPageEvent.passwordChanged(value)),
+                obscureText: true,
                 decoration: appInputDecoration.copyWith(
                   labelText: 'Password',
                 ),
@@ -163,7 +191,12 @@ class LoginForm extends StatelessWidget {
                 height: buttonHeight,
                 child: ElevatedButton(
                   style: appElevatedButton,
-                  onPressed: () => authBloc.add(AuthPageEvent.submit()),
+                  onPressed: () {
+                    FocusScope.of(context).unfocus();
+                    context
+                        .read<AuthPageBloc>()
+                        .add(AuthPageEvent.submit(AuthFormMode.login));
+                  },
                   child: const Text('LOGIN'),
                 ),
               ),
@@ -189,15 +222,17 @@ class RegisterForm extends StatelessWidget {
     super.key,
     required this.screenWidth,
     required this.email,
-    required this.authBloc,
     required this.password,
     required this.onNeedAccount,
+    this.name,
+    this.passwordConfirmation,
   });
 
   final double screenWidth;
   final String? email;
-  final AuthPageBloc authBloc;
+  final String? name;
   final String? password;
+  final String? passwordConfirmation;
   final void Function() onNeedAccount;
 
   @override
@@ -226,9 +261,20 @@ class RegisterForm extends StatelessWidget {
                   child: Center(
                       child: Text('Create an account', style: text.title))),
               TextFormField(
+                initialValue: name,
+                onChanged: (value) => context
+                    .read<AuthPageBloc>()
+                    .add(AuthPageEvent.nameChanged(value)),
+                decoration: appInputDecoration.copyWith(
+                  labelText: 'Name',
+                ),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
                 initialValue: email,
-                onChanged: (value) =>
-                    authBloc.add(AuthPageEvent.mailChanged(value)),
+                onChanged: (value) => context
+                    .read<AuthPageBloc>()
+                    .add(AuthPageEvent.mailChanged(value)),
                 decoration: appInputDecoration.copyWith(
                   labelText: 'Email',
                 ),
@@ -236,10 +282,23 @@ class RegisterForm extends StatelessWidget {
               const SizedBox(height: 16),
               TextFormField(
                 initialValue: password,
-                onChanged: (value) =>
-                    authBloc.add(AuthPageEvent.passwordChanged(value)),
+                onChanged: (value) => context
+                    .read<AuthPageBloc>()
+                    .add(AuthPageEvent.passwordChanged(value)),
+                obscureText: true,
                 decoration: appInputDecoration.copyWith(
                   labelText: 'Password',
+                ),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                initialValue: password,
+                onChanged: (value) => context
+                    .read<AuthPageBloc>()
+                    .add(AuthPageEvent.passwordConfirmationChanged(value)),
+                obscureText: true,
+                decoration: appInputDecoration.copyWith(
+                  labelText: 'Password confirmation',
                 ),
               ),
               const SizedBox(height: 16),
@@ -247,7 +306,12 @@ class RegisterForm extends StatelessWidget {
                 width: double.infinity,
                 height: buttonHeight,
                 child: ElevatedButton(
-                  onPressed: () => authBloc.add(AuthPageEvent.submit()),
+                  onPressed: () {
+                    FocusScope.of(context).unfocus();
+                    context
+                        .read<AuthPageBloc>()
+                        .add(AuthPageEvent.submit(AuthFormMode.register));
+                  },
                   style: appElevatedButton,
                   child: const Text('REGISTER'),
                 ),

@@ -19,9 +19,12 @@ mixin _$AuthPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
     required TResult Function(String value) mailChanged,
     required TResult Function(String value) passwordChanged,
-    required TResult Function() submit,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
     required TResult Function(Failure failure) failureRecieved,
     required TResult Function(String token) tokenRecieved,
   }) =>
@@ -29,9 +32,12 @@ mixin _$AuthPageEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
     TResult? Function(String value)? mailChanged,
     TResult? Function(String value)? passwordChanged,
-    TResult? Function()? submit,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
     TResult? Function(Failure failure)? failureRecieved,
     TResult? Function(String token)? tokenRecieved,
   }) =>
@@ -39,9 +45,12 @@ mixin _$AuthPageEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
     TResult Function(String value)? mailChanged,
     TResult Function(String value)? passwordChanged,
-    TResult Function()? submit,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
     TResult Function(Failure failure)? failureRecieved,
     TResult Function(String token)? tokenRecieved,
     required TResult orElse(),
@@ -50,9 +59,13 @@ mixin _$AuthPageEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
     required TResult Function(_AuthPageEventMailChanged value) mailChanged,
     required TResult Function(_AuthPageEventPasswordChanged value)
         passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
     required TResult Function(_AuthPageEventSubmit value) submit,
     required TResult Function(_AuthPageEventFailureRecieved value)
         failureRecieved,
@@ -62,8 +75,12 @@ mixin _$AuthPageEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult? Function(_AuthPageEventSubmit value)? submit,
     TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -72,8 +89,12 @@ mixin _$AuthPageEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult Function(_AuthPageEventSubmit value)? submit,
     TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -139,9 +160,12 @@ class _$AuthPageEventInitImpl implements _AuthPageEventInit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
     required TResult Function(String value) mailChanged,
     required TResult Function(String value) passwordChanged,
-    required TResult Function() submit,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
     required TResult Function(Failure failure) failureRecieved,
     required TResult Function(String token) tokenRecieved,
   }) {
@@ -152,9 +176,12 @@ class _$AuthPageEventInitImpl implements _AuthPageEventInit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
     TResult? Function(String value)? mailChanged,
     TResult? Function(String value)? passwordChanged,
-    TResult? Function()? submit,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
     TResult? Function(Failure failure)? failureRecieved,
     TResult? Function(String token)? tokenRecieved,
   }) {
@@ -165,9 +192,12 @@ class _$AuthPageEventInitImpl implements _AuthPageEventInit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
     TResult Function(String value)? mailChanged,
     TResult Function(String value)? passwordChanged,
-    TResult Function()? submit,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
     TResult Function(Failure failure)? failureRecieved,
     TResult Function(String token)? tokenRecieved,
     required TResult orElse(),
@@ -182,9 +212,13 @@ class _$AuthPageEventInitImpl implements _AuthPageEventInit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
     required TResult Function(_AuthPageEventMailChanged value) mailChanged,
     required TResult Function(_AuthPageEventPasswordChanged value)
         passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
     required TResult Function(_AuthPageEventSubmit value) submit,
     required TResult Function(_AuthPageEventFailureRecieved value)
         failureRecieved,
@@ -197,8 +231,12 @@ class _$AuthPageEventInitImpl implements _AuthPageEventInit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult? Function(_AuthPageEventSubmit value)? submit,
     TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -210,8 +248,12 @@ class _$AuthPageEventInitImpl implements _AuthPageEventInit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult Function(_AuthPageEventSubmit value)? submit,
     TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -226,6 +268,374 @@ class _$AuthPageEventInitImpl implements _AuthPageEventInit {
 
 abstract class _AuthPageEventInit implements AuthPageEvent {
   factory _AuthPageEventInit() = _$AuthPageEventInitImpl;
+}
+
+/// @nodoc
+abstract class _$$AuthPageEventModeChangedImplCopyWith<$Res> {
+  factory _$$AuthPageEventModeChangedImplCopyWith(
+          _$AuthPageEventModeChangedImpl value,
+          $Res Function(_$AuthPageEventModeChangedImpl) then) =
+      __$$AuthPageEventModeChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AuthFormMode mode});
+}
+
+/// @nodoc
+class __$$AuthPageEventModeChangedImplCopyWithImpl<$Res>
+    extends _$AuthPageEventCopyWithImpl<$Res, _$AuthPageEventModeChangedImpl>
+    implements _$$AuthPageEventModeChangedImplCopyWith<$Res> {
+  __$$AuthPageEventModeChangedImplCopyWithImpl(
+      _$AuthPageEventModeChangedImpl _value,
+      $Res Function(_$AuthPageEventModeChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mode = null,
+  }) {
+    return _then(_$AuthPageEventModeChangedImpl(
+      null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as AuthFormMode,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthPageEventModeChangedImpl implements _AuthPageEventModeChanged {
+  _$AuthPageEventModeChangedImpl(this.mode);
+
+  @override
+  final AuthFormMode mode;
+
+  @override
+  String toString() {
+    return 'AuthPageEvent.modeChanged(mode: $mode)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthPageEventModeChangedImpl &&
+            (identical(other.mode, mode) || other.mode == mode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, mode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthPageEventModeChangedImplCopyWith<_$AuthPageEventModeChangedImpl>
+      get copyWith => __$$AuthPageEventModeChangedImplCopyWithImpl<
+          _$AuthPageEventModeChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) mailChanged,
+    required TResult Function(String value) passwordChanged,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
+    required TResult Function(Failure failure) failureRecieved,
+    required TResult Function(String token) tokenRecieved,
+  }) {
+    return modeChanged(mode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? mailChanged,
+    TResult? Function(String value)? passwordChanged,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
+    TResult? Function(Failure failure)? failureRecieved,
+    TResult? Function(String token)? tokenRecieved,
+  }) {
+    return modeChanged?.call(mode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? mailChanged,
+    TResult Function(String value)? passwordChanged,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
+    TResult Function(Failure failure)? failureRecieved,
+    TResult Function(String token)? tokenRecieved,
+    required TResult orElse(),
+  }) {
+    if (modeChanged != null) {
+      return modeChanged(mode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
+    required TResult Function(_AuthPageEventMailChanged value) mailChanged,
+    required TResult Function(_AuthPageEventPasswordChanged value)
+        passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
+    required TResult Function(_AuthPageEventSubmit value) submit,
+    required TResult Function(_AuthPageEventFailureRecieved value)
+        failureRecieved,
+    required TResult Function(_AuthPageEventTokenRecieved value) tokenRecieved,
+  }) {
+    return modeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
+    TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
+    TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
+    TResult? Function(_AuthPageEventSubmit value)? submit,
+    TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
+    TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
+  }) {
+    return modeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
+    TResult Function(_AuthPageEventMailChanged value)? mailChanged,
+    TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
+    TResult Function(_AuthPageEventSubmit value)? submit,
+    TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
+    TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
+    required TResult orElse(),
+  }) {
+    if (modeChanged != null) {
+      return modeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthPageEventModeChanged implements AuthPageEvent {
+  factory _AuthPageEventModeChanged(final AuthFormMode mode) =
+      _$AuthPageEventModeChangedImpl;
+
+  AuthFormMode get mode;
+  @JsonKey(ignore: true)
+  _$$AuthPageEventModeChangedImplCopyWith<_$AuthPageEventModeChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AuthPageEventNameChangedImplCopyWith<$Res> {
+  factory _$$AuthPageEventNameChangedImplCopyWith(
+          _$AuthPageEventNameChangedImpl value,
+          $Res Function(_$AuthPageEventNameChangedImpl) then) =
+      __$$AuthPageEventNameChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$AuthPageEventNameChangedImplCopyWithImpl<$Res>
+    extends _$AuthPageEventCopyWithImpl<$Res, _$AuthPageEventNameChangedImpl>
+    implements _$$AuthPageEventNameChangedImplCopyWith<$Res> {
+  __$$AuthPageEventNameChangedImplCopyWithImpl(
+      _$AuthPageEventNameChangedImpl _value,
+      $Res Function(_$AuthPageEventNameChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$AuthPageEventNameChangedImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthPageEventNameChangedImpl implements _AuthPageEventNameChanged {
+  _$AuthPageEventNameChangedImpl(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'AuthPageEvent.nameChanged(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthPageEventNameChangedImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthPageEventNameChangedImplCopyWith<_$AuthPageEventNameChangedImpl>
+      get copyWith => __$$AuthPageEventNameChangedImplCopyWithImpl<
+          _$AuthPageEventNameChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) mailChanged,
+    required TResult Function(String value) passwordChanged,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
+    required TResult Function(Failure failure) failureRecieved,
+    required TResult Function(String token) tokenRecieved,
+  }) {
+    return nameChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? mailChanged,
+    TResult? Function(String value)? passwordChanged,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
+    TResult? Function(Failure failure)? failureRecieved,
+    TResult? Function(String token)? tokenRecieved,
+  }) {
+    return nameChanged?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? mailChanged,
+    TResult Function(String value)? passwordChanged,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
+    TResult Function(Failure failure)? failureRecieved,
+    TResult Function(String token)? tokenRecieved,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
+    required TResult Function(_AuthPageEventMailChanged value) mailChanged,
+    required TResult Function(_AuthPageEventPasswordChanged value)
+        passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
+    required TResult Function(_AuthPageEventSubmit value) submit,
+    required TResult Function(_AuthPageEventFailureRecieved value)
+        failureRecieved,
+    required TResult Function(_AuthPageEventTokenRecieved value) tokenRecieved,
+  }) {
+    return nameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
+    TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
+    TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
+    TResult? Function(_AuthPageEventSubmit value)? submit,
+    TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
+    TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
+  }) {
+    return nameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
+    TResult Function(_AuthPageEventMailChanged value)? mailChanged,
+    TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
+    TResult Function(_AuthPageEventSubmit value)? submit,
+    TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
+    TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthPageEventNameChanged implements AuthPageEvent {
+  factory _AuthPageEventNameChanged(final String value) =
+      _$AuthPageEventNameChangedImpl;
+
+  String get value;
+  @JsonKey(ignore: true)
+  _$$AuthPageEventNameChangedImplCopyWith<_$AuthPageEventNameChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -296,9 +706,12 @@ class _$AuthPageEventMailChangedImpl implements _AuthPageEventMailChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
     required TResult Function(String value) mailChanged,
     required TResult Function(String value) passwordChanged,
-    required TResult Function() submit,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
     required TResult Function(Failure failure) failureRecieved,
     required TResult Function(String token) tokenRecieved,
   }) {
@@ -309,9 +722,12 @@ class _$AuthPageEventMailChangedImpl implements _AuthPageEventMailChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
     TResult? Function(String value)? mailChanged,
     TResult? Function(String value)? passwordChanged,
-    TResult? Function()? submit,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
     TResult? Function(Failure failure)? failureRecieved,
     TResult? Function(String token)? tokenRecieved,
   }) {
@@ -322,9 +738,12 @@ class _$AuthPageEventMailChangedImpl implements _AuthPageEventMailChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
     TResult Function(String value)? mailChanged,
     TResult Function(String value)? passwordChanged,
-    TResult Function()? submit,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
     TResult Function(Failure failure)? failureRecieved,
     TResult Function(String token)? tokenRecieved,
     required TResult orElse(),
@@ -339,9 +758,13 @@ class _$AuthPageEventMailChangedImpl implements _AuthPageEventMailChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
     required TResult Function(_AuthPageEventMailChanged value) mailChanged,
     required TResult Function(_AuthPageEventPasswordChanged value)
         passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
     required TResult Function(_AuthPageEventSubmit value) submit,
     required TResult Function(_AuthPageEventFailureRecieved value)
         failureRecieved,
@@ -354,8 +777,12 @@ class _$AuthPageEventMailChangedImpl implements _AuthPageEventMailChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult? Function(_AuthPageEventSubmit value)? submit,
     TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -367,8 +794,12 @@ class _$AuthPageEventMailChangedImpl implements _AuthPageEventMailChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult Function(_AuthPageEventSubmit value)? submit,
     TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -462,9 +893,12 @@ class _$AuthPageEventPasswordChangedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
     required TResult Function(String value) mailChanged,
     required TResult Function(String value) passwordChanged,
-    required TResult Function() submit,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
     required TResult Function(Failure failure) failureRecieved,
     required TResult Function(String token) tokenRecieved,
   }) {
@@ -475,9 +909,12 @@ class _$AuthPageEventPasswordChangedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
     TResult? Function(String value)? mailChanged,
     TResult? Function(String value)? passwordChanged,
-    TResult? Function()? submit,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
     TResult? Function(Failure failure)? failureRecieved,
     TResult? Function(String token)? tokenRecieved,
   }) {
@@ -488,9 +925,12 @@ class _$AuthPageEventPasswordChangedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
     TResult Function(String value)? mailChanged,
     TResult Function(String value)? passwordChanged,
-    TResult Function()? submit,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
     TResult Function(Failure failure)? failureRecieved,
     TResult Function(String token)? tokenRecieved,
     required TResult orElse(),
@@ -505,9 +945,13 @@ class _$AuthPageEventPasswordChangedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
     required TResult Function(_AuthPageEventMailChanged value) mailChanged,
     required TResult Function(_AuthPageEventPasswordChanged value)
         passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
     required TResult Function(_AuthPageEventSubmit value) submit,
     required TResult Function(_AuthPageEventFailureRecieved value)
         failureRecieved,
@@ -520,8 +964,12 @@ class _$AuthPageEventPasswordChangedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult? Function(_AuthPageEventSubmit value)? submit,
     TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -533,8 +981,12 @@ class _$AuthPageEventPasswordChangedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult Function(_AuthPageEventSubmit value)? submit,
     TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -559,10 +1011,202 @@ abstract class _AuthPageEventPasswordChanged implements AuthPageEvent {
 }
 
 /// @nodoc
+abstract class _$$AuthPageEventPasswordConfirmationChangedImplCopyWith<$Res> {
+  factory _$$AuthPageEventPasswordConfirmationChangedImplCopyWith(
+          _$AuthPageEventPasswordConfirmationChangedImpl value,
+          $Res Function(_$AuthPageEventPasswordConfirmationChangedImpl) then) =
+      __$$AuthPageEventPasswordConfirmationChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$AuthPageEventPasswordConfirmationChangedImplCopyWithImpl<$Res>
+    extends _$AuthPageEventCopyWithImpl<$Res,
+        _$AuthPageEventPasswordConfirmationChangedImpl>
+    implements _$$AuthPageEventPasswordConfirmationChangedImplCopyWith<$Res> {
+  __$$AuthPageEventPasswordConfirmationChangedImplCopyWithImpl(
+      _$AuthPageEventPasswordConfirmationChangedImpl _value,
+      $Res Function(_$AuthPageEventPasswordConfirmationChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$AuthPageEventPasswordConfirmationChangedImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthPageEventPasswordConfirmationChangedImpl
+    implements _AuthPageEventPasswordConfirmationChanged {
+  _$AuthPageEventPasswordConfirmationChangedImpl(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'AuthPageEvent.passwordConfirmationChanged(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthPageEventPasswordConfirmationChangedImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthPageEventPasswordConfirmationChangedImplCopyWith<
+          _$AuthPageEventPasswordConfirmationChangedImpl>
+      get copyWith =>
+          __$$AuthPageEventPasswordConfirmationChangedImplCopyWithImpl<
+              _$AuthPageEventPasswordConfirmationChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) mailChanged,
+    required TResult Function(String value) passwordChanged,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
+    required TResult Function(Failure failure) failureRecieved,
+    required TResult Function(String token) tokenRecieved,
+  }) {
+    return passwordConfirmationChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? mailChanged,
+    TResult? Function(String value)? passwordChanged,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
+    TResult? Function(Failure failure)? failureRecieved,
+    TResult? Function(String token)? tokenRecieved,
+  }) {
+    return passwordConfirmationChanged?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? mailChanged,
+    TResult Function(String value)? passwordChanged,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
+    TResult Function(Failure failure)? failureRecieved,
+    TResult Function(String token)? tokenRecieved,
+    required TResult orElse(),
+  }) {
+    if (passwordConfirmationChanged != null) {
+      return passwordConfirmationChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
+    required TResult Function(_AuthPageEventMailChanged value) mailChanged,
+    required TResult Function(_AuthPageEventPasswordChanged value)
+        passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
+    required TResult Function(_AuthPageEventSubmit value) submit,
+    required TResult Function(_AuthPageEventFailureRecieved value)
+        failureRecieved,
+    required TResult Function(_AuthPageEventTokenRecieved value) tokenRecieved,
+  }) {
+    return passwordConfirmationChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
+    TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
+    TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
+    TResult? Function(_AuthPageEventSubmit value)? submit,
+    TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
+    TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
+  }) {
+    return passwordConfirmationChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
+    TResult Function(_AuthPageEventMailChanged value)? mailChanged,
+    TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
+    TResult Function(_AuthPageEventSubmit value)? submit,
+    TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
+    TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
+    required TResult orElse(),
+  }) {
+    if (passwordConfirmationChanged != null) {
+      return passwordConfirmationChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthPageEventPasswordConfirmationChanged
+    implements AuthPageEvent {
+  factory _AuthPageEventPasswordConfirmationChanged(final String value) =
+      _$AuthPageEventPasswordConfirmationChangedImpl;
+
+  String get value;
+  @JsonKey(ignore: true)
+  _$$AuthPageEventPasswordConfirmationChangedImplCopyWith<
+          _$AuthPageEventPasswordConfirmationChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$AuthPageEventSubmitImplCopyWith<$Res> {
   factory _$$AuthPageEventSubmitImplCopyWith(_$AuthPageEventSubmitImpl value,
           $Res Function(_$AuthPageEventSubmitImpl) then) =
       __$$AuthPageEventSubmitImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AuthFormMode mode});
 }
 
 /// @nodoc
@@ -572,67 +1216,100 @@ class __$$AuthPageEventSubmitImplCopyWithImpl<$Res>
   __$$AuthPageEventSubmitImplCopyWithImpl(_$AuthPageEventSubmitImpl _value,
       $Res Function(_$AuthPageEventSubmitImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mode = null,
+  }) {
+    return _then(_$AuthPageEventSubmitImpl(
+      null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as AuthFormMode,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$AuthPageEventSubmitImpl implements _AuthPageEventSubmit {
-  _$AuthPageEventSubmitImpl();
+  _$AuthPageEventSubmitImpl(this.mode);
+
+  @override
+  final AuthFormMode mode;
 
   @override
   String toString() {
-    return 'AuthPageEvent.submit()';
+    return 'AuthPageEvent.submit(mode: $mode)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthPageEventSubmitImpl);
+            other is _$AuthPageEventSubmitImpl &&
+            (identical(other.mode, mode) || other.mode == mode));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, mode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthPageEventSubmitImplCopyWith<_$AuthPageEventSubmitImpl> get copyWith =>
+      __$$AuthPageEventSubmitImplCopyWithImpl<_$AuthPageEventSubmitImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
     required TResult Function(String value) mailChanged,
     required TResult Function(String value) passwordChanged,
-    required TResult Function() submit,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
     required TResult Function(Failure failure) failureRecieved,
     required TResult Function(String token) tokenRecieved,
   }) {
-    return submit();
+    return submit(mode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
     TResult? Function(String value)? mailChanged,
     TResult? Function(String value)? passwordChanged,
-    TResult? Function()? submit,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
     TResult? Function(Failure failure)? failureRecieved,
     TResult? Function(String token)? tokenRecieved,
   }) {
-    return submit?.call();
+    return submit?.call(mode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
     TResult Function(String value)? mailChanged,
     TResult Function(String value)? passwordChanged,
-    TResult Function()? submit,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
     TResult Function(Failure failure)? failureRecieved,
     TResult Function(String token)? tokenRecieved,
     required TResult orElse(),
   }) {
     if (submit != null) {
-      return submit();
+      return submit(mode);
     }
     return orElse();
   }
@@ -641,9 +1318,13 @@ class _$AuthPageEventSubmitImpl implements _AuthPageEventSubmit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
     required TResult Function(_AuthPageEventMailChanged value) mailChanged,
     required TResult Function(_AuthPageEventPasswordChanged value)
         passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
     required TResult Function(_AuthPageEventSubmit value) submit,
     required TResult Function(_AuthPageEventFailureRecieved value)
         failureRecieved,
@@ -656,8 +1337,12 @@ class _$AuthPageEventSubmitImpl implements _AuthPageEventSubmit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult? Function(_AuthPageEventSubmit value)? submit,
     TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -669,8 +1354,12 @@ class _$AuthPageEventSubmitImpl implements _AuthPageEventSubmit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult Function(_AuthPageEventSubmit value)? submit,
     TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -684,7 +1373,13 @@ class _$AuthPageEventSubmitImpl implements _AuthPageEventSubmit {
 }
 
 abstract class _AuthPageEventSubmit implements AuthPageEvent {
-  factory _AuthPageEventSubmit() = _$AuthPageEventSubmitImpl;
+  factory _AuthPageEventSubmit(final AuthFormMode mode) =
+      _$AuthPageEventSubmitImpl;
+
+  AuthFormMode get mode;
+  @JsonKey(ignore: true)
+  _$$AuthPageEventSubmitImplCopyWith<_$AuthPageEventSubmitImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -768,9 +1463,12 @@ class _$AuthPageEventFailureRecievedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
     required TResult Function(String value) mailChanged,
     required TResult Function(String value) passwordChanged,
-    required TResult Function() submit,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
     required TResult Function(Failure failure) failureRecieved,
     required TResult Function(String token) tokenRecieved,
   }) {
@@ -781,9 +1479,12 @@ class _$AuthPageEventFailureRecievedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
     TResult? Function(String value)? mailChanged,
     TResult? Function(String value)? passwordChanged,
-    TResult? Function()? submit,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
     TResult? Function(Failure failure)? failureRecieved,
     TResult? Function(String token)? tokenRecieved,
   }) {
@@ -794,9 +1495,12 @@ class _$AuthPageEventFailureRecievedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
     TResult Function(String value)? mailChanged,
     TResult Function(String value)? passwordChanged,
-    TResult Function()? submit,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
     TResult Function(Failure failure)? failureRecieved,
     TResult Function(String token)? tokenRecieved,
     required TResult orElse(),
@@ -811,9 +1515,13 @@ class _$AuthPageEventFailureRecievedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
     required TResult Function(_AuthPageEventMailChanged value) mailChanged,
     required TResult Function(_AuthPageEventPasswordChanged value)
         passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
     required TResult Function(_AuthPageEventSubmit value) submit,
     required TResult Function(_AuthPageEventFailureRecieved value)
         failureRecieved,
@@ -826,8 +1534,12 @@ class _$AuthPageEventFailureRecievedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult? Function(_AuthPageEventSubmit value)? submit,
     TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -839,8 +1551,12 @@ class _$AuthPageEventFailureRecievedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult Function(_AuthPageEventSubmit value)? submit,
     TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -932,9 +1648,12 @@ class _$AuthPageEventTokenRecievedImpl implements _AuthPageEventTokenRecieved {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(AuthFormMode mode) modeChanged,
+    required TResult Function(String value) nameChanged,
     required TResult Function(String value) mailChanged,
     required TResult Function(String value) passwordChanged,
-    required TResult Function() submit,
+    required TResult Function(String value) passwordConfirmationChanged,
+    required TResult Function(AuthFormMode mode) submit,
     required TResult Function(Failure failure) failureRecieved,
     required TResult Function(String token) tokenRecieved,
   }) {
@@ -945,9 +1664,12 @@ class _$AuthPageEventTokenRecievedImpl implements _AuthPageEventTokenRecieved {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(AuthFormMode mode)? modeChanged,
+    TResult? Function(String value)? nameChanged,
     TResult? Function(String value)? mailChanged,
     TResult? Function(String value)? passwordChanged,
-    TResult? Function()? submit,
+    TResult? Function(String value)? passwordConfirmationChanged,
+    TResult? Function(AuthFormMode mode)? submit,
     TResult? Function(Failure failure)? failureRecieved,
     TResult? Function(String token)? tokenRecieved,
   }) {
@@ -958,9 +1680,12 @@ class _$AuthPageEventTokenRecievedImpl implements _AuthPageEventTokenRecieved {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(AuthFormMode mode)? modeChanged,
+    TResult Function(String value)? nameChanged,
     TResult Function(String value)? mailChanged,
     TResult Function(String value)? passwordChanged,
-    TResult Function()? submit,
+    TResult Function(String value)? passwordConfirmationChanged,
+    TResult Function(AuthFormMode mode)? submit,
     TResult Function(Failure failure)? failureRecieved,
     TResult Function(String token)? tokenRecieved,
     required TResult orElse(),
@@ -975,9 +1700,13 @@ class _$AuthPageEventTokenRecievedImpl implements _AuthPageEventTokenRecieved {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageEventInit value) init,
+    required TResult Function(_AuthPageEventModeChanged value) modeChanged,
+    required TResult Function(_AuthPageEventNameChanged value) nameChanged,
     required TResult Function(_AuthPageEventMailChanged value) mailChanged,
     required TResult Function(_AuthPageEventPasswordChanged value)
         passwordChanged,
+    required TResult Function(_AuthPageEventPasswordConfirmationChanged value)
+        passwordConfirmationChanged,
     required TResult Function(_AuthPageEventSubmit value) submit,
     required TResult Function(_AuthPageEventFailureRecieved value)
         failureRecieved,
@@ -990,8 +1719,12 @@ class _$AuthPageEventTokenRecievedImpl implements _AuthPageEventTokenRecieved {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageEventInit value)? init,
+    TResult? Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult? Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult? Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult? Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult? Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult? Function(_AuthPageEventSubmit value)? submit,
     TResult? Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult? Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -1003,8 +1736,12 @@ class _$AuthPageEventTokenRecievedImpl implements _AuthPageEventTokenRecieved {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageEventInit value)? init,
+    TResult Function(_AuthPageEventModeChanged value)? modeChanged,
+    TResult Function(_AuthPageEventNameChanged value)? nameChanged,
     TResult Function(_AuthPageEventMailChanged value)? mailChanged,
     TResult Function(_AuthPageEventPasswordChanged value)? passwordChanged,
+    TResult Function(_AuthPageEventPasswordConfirmationChanged value)?
+        passwordConfirmationChanged,
     TResult Function(_AuthPageEventSubmit value)? submit,
     TResult Function(_AuthPageEventFailureRecieved value)? failureRecieved,
     TResult Function(_AuthPageEventTokenRecieved value)? tokenRecieved,
@@ -1034,7 +1771,13 @@ mixin _$AuthPageState {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(
-            bool isProcessing, String? mail, String? password, String? error)
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -1043,7 +1786,13 @@ mixin _$AuthPageState {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(
-            bool isProcessing, String? mail, String? password, String? error)?
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)?
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -1052,7 +1801,13 @@ mixin _$AuthPageState {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(
-            bool isProcessing, String? mail, String? password, String? error)?
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)?
         loaded,
     required TResult orElse(),
   }) =>
@@ -1061,21 +1816,21 @@ mixin _$AuthPageState {
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageStateInit value) init,
     required TResult Function(_AuthPageStateLoading value) loading,
-    required TResult Function(_AuthPageStateDataRecieved value) loaded,
+    required TResult Function(_AuthPageStateLoaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageStateInit value)? init,
     TResult? Function(_AuthPageStateLoading value)? loading,
-    TResult? Function(_AuthPageStateDataRecieved value)? loaded,
+    TResult? Function(_AuthPageStateLoaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageStateInit value)? init,
     TResult Function(_AuthPageStateLoading value)? loading,
-    TResult Function(_AuthPageStateDataRecieved value)? loaded,
+    TResult Function(_AuthPageStateLoaded value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1117,8 +1872,8 @@ class __$$AuthPageStateInitImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthPageStateInitImpl implements _AuthPageStateInit {
-  _$AuthPageStateInitImpl();
+class _$AuthPageStateInitImpl extends _AuthPageStateInit {
+  _$AuthPageStateInitImpl() : super._();
 
   @override
   String toString() {
@@ -1140,7 +1895,13 @@ class _$AuthPageStateInitImpl implements _AuthPageStateInit {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(
-            bool isProcessing, String? mail, String? password, String? error)
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)
         loaded,
   }) {
     return init();
@@ -1152,7 +1913,13 @@ class _$AuthPageStateInitImpl implements _AuthPageStateInit {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(
-            bool isProcessing, String? mail, String? password, String? error)?
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)?
         loaded,
   }) {
     return init?.call();
@@ -1164,7 +1931,13 @@ class _$AuthPageStateInitImpl implements _AuthPageStateInit {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(
-            bool isProcessing, String? mail, String? password, String? error)?
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)?
         loaded,
     required TResult orElse(),
   }) {
@@ -1179,7 +1952,7 @@ class _$AuthPageStateInitImpl implements _AuthPageStateInit {
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageStateInit value) init,
     required TResult Function(_AuthPageStateLoading value) loading,
-    required TResult Function(_AuthPageStateDataRecieved value) loaded,
+    required TResult Function(_AuthPageStateLoaded value) loaded,
   }) {
     return init(this);
   }
@@ -1189,7 +1962,7 @@ class _$AuthPageStateInitImpl implements _AuthPageStateInit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageStateInit value)? init,
     TResult? Function(_AuthPageStateLoading value)? loading,
-    TResult? Function(_AuthPageStateDataRecieved value)? loaded,
+    TResult? Function(_AuthPageStateLoaded value)? loaded,
   }) {
     return init?.call(this);
   }
@@ -1199,7 +1972,7 @@ class _$AuthPageStateInitImpl implements _AuthPageStateInit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageStateInit value)? init,
     TResult Function(_AuthPageStateLoading value)? loading,
-    TResult Function(_AuthPageStateDataRecieved value)? loaded,
+    TResult Function(_AuthPageStateLoaded value)? loaded,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -1209,8 +1982,9 @@ class _$AuthPageStateInitImpl implements _AuthPageStateInit {
   }
 }
 
-abstract class _AuthPageStateInit implements AuthPageState {
+abstract class _AuthPageStateInit extends AuthPageState {
   factory _AuthPageStateInit() = _$AuthPageStateInitImpl;
+  _AuthPageStateInit._() : super._();
 }
 
 /// @nodoc
@@ -1231,8 +2005,8 @@ class __$$AuthPageStateLoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthPageStateLoadingImpl implements _AuthPageStateLoading {
-  _$AuthPageStateLoadingImpl();
+class _$AuthPageStateLoadingImpl extends _AuthPageStateLoading {
+  _$AuthPageStateLoadingImpl() : super._();
 
   @override
   String toString() {
@@ -1255,7 +2029,13 @@ class _$AuthPageStateLoadingImpl implements _AuthPageStateLoading {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(
-            bool isProcessing, String? mail, String? password, String? error)
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)
         loaded,
   }) {
     return loading();
@@ -1267,7 +2047,13 @@ class _$AuthPageStateLoadingImpl implements _AuthPageStateLoading {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(
-            bool isProcessing, String? mail, String? password, String? error)?
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)?
         loaded,
   }) {
     return loading?.call();
@@ -1279,7 +2065,13 @@ class _$AuthPageStateLoadingImpl implements _AuthPageStateLoading {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(
-            bool isProcessing, String? mail, String? password, String? error)?
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)?
         loaded,
     required TResult orElse(),
   }) {
@@ -1294,7 +2086,7 @@ class _$AuthPageStateLoadingImpl implements _AuthPageStateLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageStateInit value) init,
     required TResult Function(_AuthPageStateLoading value) loading,
-    required TResult Function(_AuthPageStateDataRecieved value) loaded,
+    required TResult Function(_AuthPageStateLoaded value) loaded,
   }) {
     return loading(this);
   }
@@ -1304,7 +2096,7 @@ class _$AuthPageStateLoadingImpl implements _AuthPageStateLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageStateInit value)? init,
     TResult? Function(_AuthPageStateLoading value)? loading,
-    TResult? Function(_AuthPageStateDataRecieved value)? loaded,
+    TResult? Function(_AuthPageStateLoaded value)? loaded,
   }) {
     return loading?.call(this);
   }
@@ -1314,7 +2106,7 @@ class _$AuthPageStateLoadingImpl implements _AuthPageStateLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageStateInit value)? init,
     TResult Function(_AuthPageStateLoading value)? loading,
-    TResult Function(_AuthPageStateDataRecieved value)? loaded,
+    TResult Function(_AuthPageStateLoaded value)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1324,42 +2116,59 @@ class _$AuthPageStateLoadingImpl implements _AuthPageStateLoading {
   }
 }
 
-abstract class _AuthPageStateLoading implements AuthPageState {
+abstract class _AuthPageStateLoading extends AuthPageState {
   factory _AuthPageStateLoading() = _$AuthPageStateLoadingImpl;
+  _AuthPageStateLoading._() : super._();
 }
 
 /// @nodoc
-abstract class _$$AuthPageStateDataRecievedImplCopyWith<$Res> {
-  factory _$$AuthPageStateDataRecievedImplCopyWith(
-          _$AuthPageStateDataRecievedImpl value,
-          $Res Function(_$AuthPageStateDataRecievedImpl) then) =
-      __$$AuthPageStateDataRecievedImplCopyWithImpl<$Res>;
+abstract class _$$AuthPageStateLoadedImplCopyWith<$Res> {
+  factory _$$AuthPageStateLoadedImplCopyWith(_$AuthPageStateLoadedImpl value,
+          $Res Function(_$AuthPageStateLoadedImpl) then) =
+      __$$AuthPageStateLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool isProcessing, String? mail, String? password, String? error});
+  $Res call(
+      {bool isProcessing,
+      AuthFormMode mode,
+      String? name,
+      String? mail,
+      String? password,
+      String? passwordConfirmation,
+      String? error});
 }
 
 /// @nodoc
-class __$$AuthPageStateDataRecievedImplCopyWithImpl<$Res>
-    extends _$AuthPageStateCopyWithImpl<$Res, _$AuthPageStateDataRecievedImpl>
-    implements _$$AuthPageStateDataRecievedImplCopyWith<$Res> {
-  __$$AuthPageStateDataRecievedImplCopyWithImpl(
-      _$AuthPageStateDataRecievedImpl _value,
-      $Res Function(_$AuthPageStateDataRecievedImpl) _then)
+class __$$AuthPageStateLoadedImplCopyWithImpl<$Res>
+    extends _$AuthPageStateCopyWithImpl<$Res, _$AuthPageStateLoadedImpl>
+    implements _$$AuthPageStateLoadedImplCopyWith<$Res> {
+  __$$AuthPageStateLoadedImplCopyWithImpl(_$AuthPageStateLoadedImpl _value,
+      $Res Function(_$AuthPageStateLoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isProcessing = null,
+    Object? mode = null,
+    Object? name = freezed,
     Object? mail = freezed,
     Object? password = freezed,
+    Object? passwordConfirmation = freezed,
     Object? error = freezed,
   }) {
-    return _then(_$AuthPageStateDataRecievedImpl(
+    return _then(_$AuthPageStateLoadedImpl(
       isProcessing: null == isProcessing
           ? _value.isProcessing
           : isProcessing // ignore: cast_nullable_to_non_nullable
               as bool,
+      mode: null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as AuthFormMode,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       mail: freezed == mail
           ? _value.mail
           : mail // ignore: cast_nullable_to_non_nullable
@@ -1367,6 +2176,10 @@ class __$$AuthPageStateDataRecievedImplCopyWithImpl<$Res>
       password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      passwordConfirmation: freezed == passwordConfirmation
+          ? _value.passwordConfirmation
+          : passwordConfirmation // ignore: cast_nullable_to_non_nullable
               as String?,
       error: freezed == error
           ? _value.error
@@ -1378,47 +2191,65 @@ class __$$AuthPageStateDataRecievedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthPageStateDataRecievedImpl implements _AuthPageStateDataRecieved {
-  _$AuthPageStateDataRecievedImpl(
-      {required this.isProcessing, this.mail, this.password, this.error});
+class _$AuthPageStateLoadedImpl extends _AuthPageStateLoaded {
+  _$AuthPageStateLoadedImpl(
+      {required this.isProcessing,
+      this.mode = AuthFormMode.register,
+      this.name,
+      this.mail,
+      this.password,
+      this.passwordConfirmation,
+      this.error})
+      : super._();
 
   @override
   final bool isProcessing;
+  @override
+  @JsonKey()
+  final AuthFormMode mode;
+  @override
+  final String? name;
   @override
   final String? mail;
   @override
   final String? password;
   @override
+  final String? passwordConfirmation;
+  @override
   final String? error;
 
   @override
   String toString() {
-    return 'AuthPageState.loaded(isProcessing: $isProcessing, mail: $mail, password: $password, error: $error)';
+    return 'AuthPageState.loaded(isProcessing: $isProcessing, mode: $mode, name: $name, mail: $mail, password: $password, passwordConfirmation: $passwordConfirmation, error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthPageStateDataRecievedImpl &&
+            other is _$AuthPageStateLoadedImpl &&
             (identical(other.isProcessing, isProcessing) ||
                 other.isProcessing == isProcessing) &&
+            (identical(other.mode, mode) || other.mode == mode) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.mail, mail) || other.mail == mail) &&
             (identical(other.password, password) ||
                 other.password == password) &&
+            (identical(other.passwordConfirmation, passwordConfirmation) ||
+                other.passwordConfirmation == passwordConfirmation) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isProcessing, mail, password, error);
+  int get hashCode => Object.hash(runtimeType, isProcessing, mode, name, mail,
+      password, passwordConfirmation, error);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AuthPageStateDataRecievedImplCopyWith<_$AuthPageStateDataRecievedImpl>
-      get copyWith => __$$AuthPageStateDataRecievedImplCopyWithImpl<
-          _$AuthPageStateDataRecievedImpl>(this, _$identity);
+  _$$AuthPageStateLoadedImplCopyWith<_$AuthPageStateLoadedImpl> get copyWith =>
+      __$$AuthPageStateLoadedImplCopyWithImpl<_$AuthPageStateLoadedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1426,10 +2257,17 @@ class _$AuthPageStateDataRecievedImpl implements _AuthPageStateDataRecieved {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(
-            bool isProcessing, String? mail, String? password, String? error)
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)
         loaded,
   }) {
-    return loaded(isProcessing, mail, password, error);
+    return loaded(
+        isProcessing, mode, name, mail, password, passwordConfirmation, error);
   }
 
   @override
@@ -1438,10 +2276,17 @@ class _$AuthPageStateDataRecievedImpl implements _AuthPageStateDataRecieved {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(
-            bool isProcessing, String? mail, String? password, String? error)?
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)?
         loaded,
   }) {
-    return loaded?.call(isProcessing, mail, password, error);
+    return loaded?.call(
+        isProcessing, mode, name, mail, password, passwordConfirmation, error);
   }
 
   @override
@@ -1450,12 +2295,19 @@ class _$AuthPageStateDataRecievedImpl implements _AuthPageStateDataRecieved {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(
-            bool isProcessing, String? mail, String? password, String? error)?
+            bool isProcessing,
+            AuthFormMode mode,
+            String? name,
+            String? mail,
+            String? password,
+            String? passwordConfirmation,
+            String? error)?
         loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(isProcessing, mail, password, error);
+      return loaded(isProcessing, mode, name, mail, password,
+          passwordConfirmation, error);
     }
     return orElse();
   }
@@ -1465,7 +2317,7 @@ class _$AuthPageStateDataRecievedImpl implements _AuthPageStateDataRecieved {
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthPageStateInit value) init,
     required TResult Function(_AuthPageStateLoading value) loading,
-    required TResult Function(_AuthPageStateDataRecieved value) loaded,
+    required TResult Function(_AuthPageStateLoaded value) loaded,
   }) {
     return loaded(this);
   }
@@ -1475,7 +2327,7 @@ class _$AuthPageStateDataRecievedImpl implements _AuthPageStateDataRecieved {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthPageStateInit value)? init,
     TResult? Function(_AuthPageStateLoading value)? loading,
-    TResult? Function(_AuthPageStateDataRecieved value)? loaded,
+    TResult? Function(_AuthPageStateLoaded value)? loaded,
   }) {
     return loaded?.call(this);
   }
@@ -1485,7 +2337,7 @@ class _$AuthPageStateDataRecievedImpl implements _AuthPageStateDataRecieved {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthPageStateInit value)? init,
     TResult Function(_AuthPageStateLoading value)? loading,
-    TResult Function(_AuthPageStateDataRecieved value)? loaded,
+    TResult Function(_AuthPageStateLoaded value)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1495,18 +2347,25 @@ class _$AuthPageStateDataRecievedImpl implements _AuthPageStateDataRecieved {
   }
 }
 
-abstract class _AuthPageStateDataRecieved implements AuthPageState {
-  factory _AuthPageStateDataRecieved(
+abstract class _AuthPageStateLoaded extends AuthPageState {
+  factory _AuthPageStateLoaded(
       {required final bool isProcessing,
+      final AuthFormMode mode,
+      final String? name,
       final String? mail,
       final String? password,
-      final String? error}) = _$AuthPageStateDataRecievedImpl;
+      final String? passwordConfirmation,
+      final String? error}) = _$AuthPageStateLoadedImpl;
+  _AuthPageStateLoaded._() : super._();
 
   bool get isProcessing;
+  AuthFormMode get mode;
+  String? get name;
   String? get mail;
   String? get password;
+  String? get passwordConfirmation;
   String? get error;
   @JsonKey(ignore: true)
-  _$$AuthPageStateDataRecievedImplCopyWith<_$AuthPageStateDataRecievedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$AuthPageStateLoadedImplCopyWith<_$AuthPageStateLoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

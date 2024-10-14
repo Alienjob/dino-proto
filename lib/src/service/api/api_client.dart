@@ -5,6 +5,11 @@ import 'package:retrofit/retrofit.dart';
 
 part 'api_client.g.dart';
 
+@module
+abstract class RetrofitInjectableModule {
+  ApiClient getService() => _ApiClient(Dio());
+}
+
 @RestApi(baseUrl: 'https://testwork.shot.dinolab.com/')
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;

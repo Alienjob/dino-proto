@@ -8,11 +8,6 @@ import 'package:dino_proto/src/service/dto/user_response.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 
-@module
-abstract class RetrofitInjectableModule {
-  BackendService getService(ApiClient client) => BackendService(client);
-}
-
 @Injectable(as: IBackendService)
 class BackendService implements IBackendService {
   final ApiClient _apiClient;
