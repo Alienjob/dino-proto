@@ -19,7 +19,12 @@ class AuthPageBloc extends Bloc<AuthPageEvent, AuthPageState> {
   }
 
   void _onInit(_AuthPageEventInit event, emit) {
-    emit(AuthPageState.loading());
+    emit(AuthPageState.loaded(
+      mail: '',
+      password: '',
+      isProcessing: false,
+      error: null,
+    ));
   }
 
   void _onMailChanged(_AuthPageEventMailChanged event, emit) {}

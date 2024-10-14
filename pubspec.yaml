@@ -11,11 +11,13 @@ environment:
 
 dependencies:
   dio: ^5.7.0
+  floating_bubbles: ^2.6.2
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
   flutter_localizations:
     sdk: flutter
+  flutter_svg: ^2.0.10+1
   fpdart: ^1.1.0
   freezed_annotation: ^2.4.4
   get_it: ^7.7.0
@@ -44,3 +46,5 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
+    - assets/images/illustrations/
+    

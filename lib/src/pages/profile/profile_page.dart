@@ -10,7 +10,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProfilePageBloc(),
+      create: (context) => ProfilePageBloc()..add(ProfilePageEvent.init()),
       child: BlocBuilder<ProfilePageBloc, ProfilePageState>(
           builder: (context, profileState) {
         return profileState.map(
