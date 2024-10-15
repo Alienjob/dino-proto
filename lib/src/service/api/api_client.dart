@@ -1,4 +1,5 @@
 import 'package:dino_proto/src/service/api/api_client.dart';
+import 'package:dino_proto/src/service/dto/token_response.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
@@ -18,8 +19,12 @@ abstract class ApiClient {
   Future<dynamic> me();
 
   @POST('/api/login')
-  Future<dynamic> login();
+  Future<TokenResponse> login(
+    @Body() dynamic loginRequest,
+  );
 
   @POST('/api/register')
-  Future<dynamic> register();
+  Future<TokenResponse> register(
+    @Body() dynamic registerRequest,
+  );
 }

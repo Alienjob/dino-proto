@@ -1777,7 +1777,8 @@ mixin _$AuthPageState {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)
+            String? error,
+            bool isAuthorized)
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -1792,7 +1793,8 @@ mixin _$AuthPageState {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)?
+            String? error,
+            bool isAuthorized)?
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -1807,7 +1809,8 @@ mixin _$AuthPageState {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)?
+            String? error,
+            bool isAuthorized)?
         loaded,
     required TResult orElse(),
   }) =>
@@ -1901,7 +1904,8 @@ class _$AuthPageStateInitImpl extends _AuthPageStateInit {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)
+            String? error,
+            bool isAuthorized)
         loaded,
   }) {
     return init();
@@ -1919,7 +1923,8 @@ class _$AuthPageStateInitImpl extends _AuthPageStateInit {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)?
+            String? error,
+            bool isAuthorized)?
         loaded,
   }) {
     return init?.call();
@@ -1937,7 +1942,8 @@ class _$AuthPageStateInitImpl extends _AuthPageStateInit {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)?
+            String? error,
+            bool isAuthorized)?
         loaded,
     required TResult orElse(),
   }) {
@@ -2035,7 +2041,8 @@ class _$AuthPageStateLoadingImpl extends _AuthPageStateLoading {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)
+            String? error,
+            bool isAuthorized)
         loaded,
   }) {
     return loading();
@@ -2053,7 +2060,8 @@ class _$AuthPageStateLoadingImpl extends _AuthPageStateLoading {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)?
+            String? error,
+            bool isAuthorized)?
         loaded,
   }) {
     return loading?.call();
@@ -2071,7 +2079,8 @@ class _$AuthPageStateLoadingImpl extends _AuthPageStateLoading {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)?
+            String? error,
+            bool isAuthorized)?
         loaded,
     required TResult orElse(),
   }) {
@@ -2134,7 +2143,8 @@ abstract class _$$AuthPageStateLoadedImplCopyWith<$Res> {
       String? mail,
       String? password,
       String? passwordConfirmation,
-      String? error});
+      String? error,
+      bool isAuthorized});
 }
 
 /// @nodoc
@@ -2155,6 +2165,7 @@ class __$$AuthPageStateLoadedImplCopyWithImpl<$Res>
     Object? password = freezed,
     Object? passwordConfirmation = freezed,
     Object? error = freezed,
+    Object? isAuthorized = null,
   }) {
     return _then(_$AuthPageStateLoadedImpl(
       isProcessing: null == isProcessing
@@ -2185,6 +2196,10 @@ class __$$AuthPageStateLoadedImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      isAuthorized: null == isAuthorized
+          ? _value.isAuthorized
+          : isAuthorized // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2199,7 +2214,8 @@ class _$AuthPageStateLoadedImpl extends _AuthPageStateLoaded {
       this.mail,
       this.password,
       this.passwordConfirmation,
-      this.error})
+      this.error,
+      this.isAuthorized = false})
       : super._();
 
   @override
@@ -2217,10 +2233,13 @@ class _$AuthPageStateLoadedImpl extends _AuthPageStateLoaded {
   final String? passwordConfirmation;
   @override
   final String? error;
+  @override
+  @JsonKey()
+  final bool isAuthorized;
 
   @override
   String toString() {
-    return 'AuthPageState.loaded(isProcessing: $isProcessing, mode: $mode, name: $name, mail: $mail, password: $password, passwordConfirmation: $passwordConfirmation, error: $error)';
+    return 'AuthPageState.loaded(isProcessing: $isProcessing, mode: $mode, name: $name, mail: $mail, password: $password, passwordConfirmation: $passwordConfirmation, error: $error, isAuthorized: $isAuthorized)';
   }
 
   @override
@@ -2237,12 +2256,14 @@ class _$AuthPageStateLoadedImpl extends _AuthPageStateLoaded {
                 other.password == password) &&
             (identical(other.passwordConfirmation, passwordConfirmation) ||
                 other.passwordConfirmation == passwordConfirmation) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.isAuthorized, isAuthorized) ||
+                other.isAuthorized == isAuthorized));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, isProcessing, mode, name, mail,
-      password, passwordConfirmation, error);
+      password, passwordConfirmation, error, isAuthorized);
 
   @JsonKey(ignore: true)
   @override
@@ -2263,11 +2284,12 @@ class _$AuthPageStateLoadedImpl extends _AuthPageStateLoaded {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)
+            String? error,
+            bool isAuthorized)
         loaded,
   }) {
-    return loaded(
-        isProcessing, mode, name, mail, password, passwordConfirmation, error);
+    return loaded(isProcessing, mode, name, mail, password,
+        passwordConfirmation, error, isAuthorized);
   }
 
   @override
@@ -2282,11 +2304,12 @@ class _$AuthPageStateLoadedImpl extends _AuthPageStateLoaded {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)?
+            String? error,
+            bool isAuthorized)?
         loaded,
   }) {
-    return loaded?.call(
-        isProcessing, mode, name, mail, password, passwordConfirmation, error);
+    return loaded?.call(isProcessing, mode, name, mail, password,
+        passwordConfirmation, error, isAuthorized);
   }
 
   @override
@@ -2301,13 +2324,14 @@ class _$AuthPageStateLoadedImpl extends _AuthPageStateLoaded {
             String? mail,
             String? password,
             String? passwordConfirmation,
-            String? error)?
+            String? error,
+            bool isAuthorized)?
         loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
       return loaded(isProcessing, mode, name, mail, password,
-          passwordConfirmation, error);
+          passwordConfirmation, error, isAuthorized);
     }
     return orElse();
   }
@@ -2355,7 +2379,8 @@ abstract class _AuthPageStateLoaded extends AuthPageState {
       final String? mail,
       final String? password,
       final String? passwordConfirmation,
-      final String? error}) = _$AuthPageStateLoadedImpl;
+      final String? error,
+      final bool isAuthorized}) = _$AuthPageStateLoadedImpl;
   _AuthPageStateLoaded._() : super._();
 
   bool get isProcessing;
@@ -2365,6 +2390,7 @@ abstract class _AuthPageStateLoaded extends AuthPageState {
   String? get password;
   String? get passwordConfirmation;
   String? get error;
+  bool get isAuthorized;
   @JsonKey(ignore: true)
   _$$AuthPageStateLoadedImplCopyWith<_$AuthPageStateLoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;

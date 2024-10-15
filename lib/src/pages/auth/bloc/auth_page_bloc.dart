@@ -1,11 +1,10 @@
+import 'package:dino_proto/src/core/core_bloc.dart';
 import 'package:dino_proto/src/model/enum/auth_form_mode.dart';
 import 'package:dino_proto/src/model/failure/failure.dart';
 import 'package:dino_proto/src/model/interface/i_backend_service.dart';
-import 'package:dino_proto/src/model/user.dart';
 import 'package:dino_proto/src/model/validation_error.dart';
 import 'package:dino_proto/src/service/dto/login_request.dart';
 import 'package:dino_proto/src/service/dto/register_request.dart';
-import 'package:dino_proto/src/service/dto/token_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -17,7 +16,8 @@ part 'auth_page_bloc.freezed.dart';
 
 @injectable
 class AuthPageBloc extends Bloc<AuthPageEvent, AuthPageState> {
-  AuthPageBloc(this._backendService) : super(AuthPageState.init()) {
+  AuthPageBloc(this._backendService, this._coreBloc)
+      : super(AuthPageState.init()) {
     on<_AuthPageEventInit>(_onInit);
     on<_AuthPageEventModeChanged>(_onModeChanged);
     on<_AuthPageEventNameChanged>(_onNameChanged);
@@ -31,6 +31,7 @@ class AuthPageBloc extends Bloc<AuthPageEvent, AuthPageState> {
   }
 
   final IBackendService _backendService;
+  final CoreBloc _coreBloc;
 
   void _onInit(_AuthPageEventInit event, emit) {
     emit(AuthPageState.loaded(
@@ -94,12 +95,11 @@ class AuthPageBloc extends Bloc<AuthPageEvent, AuthPageState> {
         final response = await _backendService
             .login(LoginRequest(email: mail!, password: password!));
 
-        if (response is Failure) {
-          add(AuthPageEvent.failureRecieved(response as Failure));
-        } else {
-          add(AuthPageEvent.tokenRecieved(
-              (response as TokenResponse).accessToken));
-        }
+        response.fold(
+          (failure) => add(AuthPageEvent.failureRecieved(failure)),
+          (tokenResponse) =>
+              add(AuthPageEvent.tokenRecieved(tokenResponse.accessToken)),
+        );
       } else {
         if ((mail ?? '').isEmpty ||
             (password ?? '').isEmpty ||
@@ -123,12 +123,11 @@ class AuthPageBloc extends Bloc<AuthPageEvent, AuthPageState> {
           name: name!,
         ));
 
-        if (response is Failure) {
-          add(AuthPageEvent.failureRecieved(response as Failure));
-        } else {
-          add(AuthPageEvent.tokenRecieved(
-              (response as TokenResponse).accessToken));
-        }
+        response.fold((failure) {
+          add(AuthPageEvent.failureRecieved(failure));
+        }, (tokenResponse) {
+          add(AuthPageEvent.tokenRecieved(tokenResponse.accessToken));
+        });
       }
     }
   }
@@ -142,8 +141,10 @@ class AuthPageBloc extends Bloc<AuthPageEvent, AuthPageState> {
     }
   }
 
-  void _onTokenRecieved(_AuthPageEventTokenRecieved event, emit) {
+  void _onTokenRecieved(_AuthPageEventTokenRecieved event, emit) async {
     emit((state as _AuthPageStateLoaded)
-        .copyWith(isProcessing: false, error: 'Unemplemented'));
+        .copyWith(isAuthorized: true, isProcessing: false, error: null));
+    await Future.delayed(const Duration(milliseconds: 300));
+    _coreBloc.add(CoreEvent.setToken(event.token));
   }
 }

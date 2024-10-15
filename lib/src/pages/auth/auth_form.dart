@@ -9,10 +9,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AuthForm extends StatefulWidget {
-  const AuthForm({super.key, required this.email, required this.password});
+  const AuthForm(
+      {super.key,
+      required this.email,
+      required this.password,
+      this.name,
+      this.passwordConfirmation,
+      required this.isAuthorized});
 
+  final AuthFormMode mode = AuthFormMode.login;
   final String? email;
   final String? password;
+  final String? name;
+  final String? passwordConfirmation;
+
+  final bool isAuthorized;
 
   @override
   State<AuthForm> createState() => _AuthFormState();
@@ -29,6 +40,9 @@ class _AuthFormState extends State<AuthForm> with TickerProviderStateMixin {
       length: AuthFormMode.values.length,
       vsync: this,
     );
+    _tabController.addListener(() {
+      _onTabChanged(_tabController.index);
+    });
   }
 
   @override
@@ -90,6 +104,30 @@ class _AuthFormState extends State<AuthForm> with TickerProviderStateMixin {
               bottom: false,
               child: Builder(
                 builder: (context) {
+                  if (widget.isAuthorized) {
+                    // congrats icon in green circle
+                    return Center(
+                        child: Stack(
+                      children: [
+                        Center(
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white.withOpacity(1),
+                            radius: 80,
+                          ),
+                        ),
+                        Center(
+                          child: CircleAvatar(
+                            backgroundColor: Colors.green.withOpacity(0.2),
+                            radius: 100,
+                          ),
+                        ),
+                        Center(
+                          child: Icon(Icons.check_circle,
+                              color: Colors.green, size: 200),
+                        ),
+                      ],
+                    ));
+                  }
                   return CustomScrollView(
                     key: PageStorageKey<AuthFormMode>(mode),
                     slivers: [
@@ -105,6 +143,9 @@ class _AuthFormState extends State<AuthForm> with TickerProviderStateMixin {
                                   screenWidth: screenWidth,
                                   email: widget.email,
                                   password: widget.password,
+                                  name: widget.name,
+                                  passwordConfirmation:
+                                      widget.passwordConfirmation,
                                   onNeedAccount: _goToLogin)
                               : LoginForm(
                                   screenWidth: screenWidth,
@@ -170,6 +211,7 @@ class LoginForm extends StatelessWidget {
                 onChanged: (value) => context
                     .read<AuthPageBloc>()
                     .add(AuthPageEvent.mailChanged(value)),
+                keyboardType: TextInputType.emailAddress,
                 decoration: appInputDecoration.copyWith(
                   labelText: 'Email',
                 ),
@@ -224,8 +266,8 @@ class RegisterForm extends StatelessWidget {
     required this.email,
     required this.password,
     required this.onNeedAccount,
-    this.name,
-    this.passwordConfirmation,
+    required this.name,
+    required this.passwordConfirmation,
   });
 
   final double screenWidth;
@@ -275,6 +317,7 @@ class RegisterForm extends StatelessWidget {
                 onChanged: (value) => context
                     .read<AuthPageBloc>()
                     .add(AuthPageEvent.mailChanged(value)),
+                keyboardType: TextInputType.emailAddress,
                 decoration: appInputDecoration.copyWith(
                   labelText: 'Email',
                 ),
