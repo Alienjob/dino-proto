@@ -87,7 +87,7 @@ class _TaskPageState extends State<TaskPage> {
                   Text(
                       'It illustrates two way communication between Flutter and Webview.',
                       style: text.subtitle),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Expanded(child: WebViewWidget(controller: controller!)),
                 ],
               ),

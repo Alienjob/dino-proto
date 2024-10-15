@@ -1,12 +1,10 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:dino_proto/src/core/core_bloc.dart';
 import 'package:dino_proto/src/model/failure/failure.dart';
 import 'package:dino_proto/src/model/interface/i_backend_service.dart';
 import 'package:dino_proto/src/model/user.dart';
 import 'package:dino_proto/src/service/dto/user_response.dart';
-import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

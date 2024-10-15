@@ -20,12 +20,12 @@ class CoreBloc extends Bloc<CoreEvent, CoreState> {
     on<_CoreEventWebPageData>(_onWebPageData);
   }
 
-  HttpServer? _server;
+  HttpServer? server;
 
   void _onInit(_CoreEventInit event, emit) {
     emit(state.copyWith(serverStatus: ServerStatus.waiting));
     createServer().then((server) {
-      _server = server;
+      server = server;
       add(const CoreEvent.serverStarted());
     });
   }

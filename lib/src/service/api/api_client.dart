@@ -1,4 +1,3 @@
-import 'package:dino_proto/src/service/api/api_client.dart';
 import 'package:dino_proto/src/service/api/auth_interceptor.dart';
 import 'package:dino_proto/src/service/dto/token_response.dart';
 import 'package:dino_proto/src/service/dto/user_response.dart';

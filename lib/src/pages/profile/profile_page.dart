@@ -6,9 +6,7 @@ import 'package:dino_proto/src/theme/app_colors.dart';
 import 'package:dino_proto/src/theme/buttons.dart';
 import 'package:dino_proto/src/theme/text.dart';
 import 'package:floating_bubbles/floating_bubbles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfilePage extends StatelessWidget {

@@ -2,7 +2,7 @@ import 'package:dino_proto/src/theme/app_colors.dart';
 import 'package:dino_proto/src/theme/text.dart';
 import 'package:flutter/material.dart';
 
-final buttonHeight = 56.0;
+const buttonHeight = 56.0;
 final appElevatedButton = ElevatedButton.styleFrom(
   backgroundColor: AppColors.yellow,
   foregroundColor: AppColors.pink,

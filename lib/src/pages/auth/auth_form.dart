@@ -76,9 +76,7 @@ class _AuthFormState extends State<AuthForm> with TickerProviderStateMixin {
     final screenHeight = MediaQuery.of(context).size.height;
     final appBarHeight = screenHeight * 0.3;
     final screenWidth = MediaQuery.of(context).size.width;
-    const inputHeight = 56.0;
-    const cartHeight = inputHeight * 5 + 16 * 4 + 48 + 32;
-    const itemExtent = inputHeight + 16;
+
     return NestedScrollView(
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return <Widget>[
@@ -121,7 +119,7 @@ class _AuthFormState extends State<AuthForm> with TickerProviderStateMixin {
                             radius: 100,
                           ),
                         ),
-                        Center(
+                        const Center(
                           child: Icon(Icons.check_circle,
                               color: Colors.green, size: 200),
                         ),

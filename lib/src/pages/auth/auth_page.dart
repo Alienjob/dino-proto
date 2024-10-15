@@ -1,6 +1,5 @@
 import 'package:dino_proto/src/core/core_bloc.dart';
 import 'package:dino_proto/src/pages/profile/profile_page.dart';
-import 'package:dino_proto/src/sample_feature/sample_item_list_view.dart';
 import 'package:dino_proto/src/service/di/di.dart';
 import 'package:dino_proto/src/theme/app_colors.dart';
 import 'package:dino_proto/src/pages/auth/auth_form.dart';

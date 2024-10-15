@@ -7,13 +7,13 @@ final appInputDecoration = InputDecoration(
   floatingLabelBehavior: FloatingLabelBehavior.never,
   focusedBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(20.0),
-    borderSide: BorderSide(
+    borderSide: const BorderSide(
       color: AppColors.blue,
       width: 0,
     ),
   ),
   enabledBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(20.0),
-    borderSide: BorderSide(color: AppColors.yellow, width: 0),
+    borderSide: const BorderSide(color: AppColors.yellow, width: 0),
   ),
 );
