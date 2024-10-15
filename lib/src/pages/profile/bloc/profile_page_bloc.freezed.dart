@@ -19,22 +19,22 @@ mixin _$ProfilePageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() dataRecieved,
-    required TResult Function() errorRecieved,
+    required TResult Function(UserResponse userResponse) dataRecieved,
+    required TResult Function(Failure failure) errorRecieved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? dataRecieved,
-    TResult? Function()? errorRecieved,
+    TResult? Function(UserResponse userResponse)? dataRecieved,
+    TResult? Function(Failure failure)? errorRecieved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? dataRecieved,
-    TResult Function()? errorRecieved,
+    TResult Function(UserResponse userResponse)? dataRecieved,
+    TResult Function(Failure failure)? errorRecieved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,8 +121,8 @@ class _$ProfilePageEventInitImpl implements _ProfilePageEventInit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() dataRecieved,
-    required TResult Function() errorRecieved,
+    required TResult Function(UserResponse userResponse) dataRecieved,
+    required TResult Function(Failure failure) errorRecieved,
   }) {
     return init();
   }
@@ -131,8 +131,8 @@ class _$ProfilePageEventInitImpl implements _ProfilePageEventInit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? dataRecieved,
-    TResult? Function()? errorRecieved,
+    TResult? Function(UserResponse userResponse)? dataRecieved,
+    TResult? Function(Failure failure)? errorRecieved,
   }) {
     return init?.call();
   }
@@ -141,8 +141,8 @@ class _$ProfilePageEventInitImpl implements _ProfilePageEventInit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? dataRecieved,
-    TResult Function()? errorRecieved,
+    TResult Function(UserResponse userResponse)? dataRecieved,
+    TResult Function(Failure failure)? errorRecieved,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -197,6 +197,10 @@ abstract class _$$ProfilePageEventDataRecievedImplCopyWith<$Res> {
           _$ProfilePageEventDataRecievedImpl value,
           $Res Function(_$ProfilePageEventDataRecievedImpl) then) =
       __$$ProfilePageEventDataRecievedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserResponse userResponse});
+
+  $UserResponseCopyWith<$Res> get userResponse;
 }
 
 /// @nodoc
@@ -208,59 +212,93 @@ class __$$ProfilePageEventDataRecievedImplCopyWithImpl<$Res>
       _$ProfilePageEventDataRecievedImpl _value,
       $Res Function(_$ProfilePageEventDataRecievedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userResponse = null,
+  }) {
+    return _then(_$ProfilePageEventDataRecievedImpl(
+      userResponse: null == userResponse
+          ? _value.userResponse
+          : userResponse // ignore: cast_nullable_to_non_nullable
+              as UserResponse,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserResponseCopyWith<$Res> get userResponse {
+    return $UserResponseCopyWith<$Res>(_value.userResponse, (value) {
+      return _then(_value.copyWith(userResponse: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$ProfilePageEventDataRecievedImpl
     implements _ProfilePageEventDataRecieved {
-  _$ProfilePageEventDataRecievedImpl();
+  _$ProfilePageEventDataRecievedImpl({required this.userResponse});
+
+  @override
+  final UserResponse userResponse;
 
   @override
   String toString() {
-    return 'ProfilePageEvent.dataRecieved()';
+    return 'ProfilePageEvent.dataRecieved(userResponse: $userResponse)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProfilePageEventDataRecievedImpl);
+            other is _$ProfilePageEventDataRecievedImpl &&
+            (identical(other.userResponse, userResponse) ||
+                other.userResponse == userResponse));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, userResponse);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProfilePageEventDataRecievedImplCopyWith<
+          _$ProfilePageEventDataRecievedImpl>
+      get copyWith => __$$ProfilePageEventDataRecievedImplCopyWithImpl<
+          _$ProfilePageEventDataRecievedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() dataRecieved,
-    required TResult Function() errorRecieved,
+    required TResult Function(UserResponse userResponse) dataRecieved,
+    required TResult Function(Failure failure) errorRecieved,
   }) {
-    return dataRecieved();
+    return dataRecieved(userResponse);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? dataRecieved,
-    TResult? Function()? errorRecieved,
+    TResult? Function(UserResponse userResponse)? dataRecieved,
+    TResult? Function(Failure failure)? errorRecieved,
   }) {
-    return dataRecieved?.call();
+    return dataRecieved?.call(userResponse);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? dataRecieved,
-    TResult Function()? errorRecieved,
+    TResult Function(UserResponse userResponse)? dataRecieved,
+    TResult Function(Failure failure)? errorRecieved,
     required TResult orElse(),
   }) {
     if (dataRecieved != null) {
-      return dataRecieved();
+      return dataRecieved(userResponse);
     }
     return orElse();
   }
@@ -302,7 +340,15 @@ class _$ProfilePageEventDataRecievedImpl
 }
 
 abstract class _ProfilePageEventDataRecieved implements ProfilePageEvent {
-  factory _ProfilePageEventDataRecieved() = _$ProfilePageEventDataRecievedImpl;
+  factory _ProfilePageEventDataRecieved(
+          {required final UserResponse userResponse}) =
+      _$ProfilePageEventDataRecievedImpl;
+
+  UserResponse get userResponse;
+  @JsonKey(ignore: true)
+  _$$ProfilePageEventDataRecievedImplCopyWith<
+          _$ProfilePageEventDataRecievedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -311,6 +357,10 @@ abstract class _$$ProfilePageEventErrorRecievedImplCopyWith<$Res> {
           _$ProfilePageEventErrorRecievedImpl value,
           $Res Function(_$ProfilePageEventErrorRecievedImpl) then) =
       __$$ProfilePageEventErrorRecievedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Failure failure});
+
+  $FailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
@@ -322,59 +372,92 @@ class __$$ProfilePageEventErrorRecievedImplCopyWithImpl<$Res>
       _$ProfilePageEventErrorRecievedImpl _value,
       $Res Function(_$ProfilePageEventErrorRecievedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failure = null,
+  }) {
+    return _then(_$ProfilePageEventErrorRecievedImpl(
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FailureCopyWith<$Res> get failure {
+    return $FailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$ProfilePageEventErrorRecievedImpl
     implements _ProfilePageEventErrorRecieved {
-  _$ProfilePageEventErrorRecievedImpl();
+  _$ProfilePageEventErrorRecievedImpl({required this.failure});
+
+  @override
+  final Failure failure;
 
   @override
   String toString() {
-    return 'ProfilePageEvent.errorRecieved()';
+    return 'ProfilePageEvent.errorRecieved(failure: $failure)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProfilePageEventErrorRecievedImpl);
+            other is _$ProfilePageEventErrorRecievedImpl &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, failure);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProfilePageEventErrorRecievedImplCopyWith<
+          _$ProfilePageEventErrorRecievedImpl>
+      get copyWith => __$$ProfilePageEventErrorRecievedImplCopyWithImpl<
+          _$ProfilePageEventErrorRecievedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() dataRecieved,
-    required TResult Function() errorRecieved,
+    required TResult Function(UserResponse userResponse) dataRecieved,
+    required TResult Function(Failure failure) errorRecieved,
   }) {
-    return errorRecieved();
+    return errorRecieved(failure);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? dataRecieved,
-    TResult? Function()? errorRecieved,
+    TResult? Function(UserResponse userResponse)? dataRecieved,
+    TResult? Function(Failure failure)? errorRecieved,
   }) {
-    return errorRecieved?.call();
+    return errorRecieved?.call(failure);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? dataRecieved,
-    TResult Function()? errorRecieved,
+    TResult Function(UserResponse userResponse)? dataRecieved,
+    TResult Function(Failure failure)? errorRecieved,
     required TResult orElse(),
   }) {
     if (errorRecieved != null) {
-      return errorRecieved();
+      return errorRecieved(failure);
     }
     return orElse();
   }
@@ -416,8 +499,14 @@ class _$ProfilePageEventErrorRecievedImpl
 }
 
 abstract class _ProfilePageEventErrorRecieved implements ProfilePageEvent {
-  factory _ProfilePageEventErrorRecieved() =
+  factory _ProfilePageEventErrorRecieved({required final Failure failure}) =
       _$ProfilePageEventErrorRecievedImpl;
+
+  Failure get failure;
+  @JsonKey(ignore: true)
+  _$$ProfilePageEventErrorRecievedImplCopyWith<
+          _$ProfilePageEventErrorRecievedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

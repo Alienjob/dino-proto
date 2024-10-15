@@ -14,6 +14,7 @@ import 'package:injectable/injectable.dart' as _i2;
 import '../../core/core_bloc.dart' as _i4;
 import '../../model/interface/i_backend_service.dart' as _i5;
 import '../../pages/auth/bloc/auth_page_bloc.dart' as _i7;
+import '../../pages/profile/bloc/profile_page_bloc.dart' as _i8;
 import '../api/api_client.dart' as _i3;
 import '../backend_service.dart' as _i6;
 
@@ -34,6 +35,10 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i5.IBackendService>(
         () => _i6.BackendService(gh<_i3.ApiClient>()));
     gh.factory<_i7.AuthPageBloc>(() => _i7.AuthPageBloc(
+          gh<_i5.IBackendService>(),
+          gh<_i4.CoreBloc>(),
+        ));
+    gh.factory<_i8.ProfilePageBloc>(() => _i8.ProfilePageBloc(
           gh<_i5.IBackendService>(),
           gh<_i4.CoreBloc>(),
         ));

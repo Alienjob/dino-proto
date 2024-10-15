@@ -21,6 +21,16 @@ class BackendService implements IBackendService {
     try {
       final response = await _apiClient.me();
       return Right(response);
+    } on DioException catch (e) {
+      final errors = e.response?.data['errors'];
+      if (errors != null) {
+        return Left(Failure.validationFailure(
+          errors: List<ValidationError>.from(errors.map((e) {
+            return ValidationError.fromJson(e);
+          })),
+        ));
+      }
+      return Left(Failure.unexpected(e.toString()));
     } catch (e) {
       return Left(Failure.unexpected(e.toString()));
     }

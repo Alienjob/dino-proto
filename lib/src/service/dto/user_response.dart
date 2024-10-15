@@ -14,12 +14,7 @@ class UserResponse with _$UserResponse {
     required String avatar,
   }) = _UserResponse;
 
-  User toModel({
-    required String email,
-    required String name,
-    required String avatar,
-  }) =>
-      User(
+  User toModel() => User(
         email: email,
         name: name,
         avatar: avatar,

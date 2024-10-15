@@ -1,8 +1,10 @@
 import 'package:dino_proto/src/pages/auth/auth_page.dart';
 import 'package:dino_proto/src/pages/profile/profile_page.dart';
+import 'package:dino_proto/src/pages/task/task_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fpdart/fpdart.dart';
 
 import 'sample_feature/sample_item_details_view.dart';
 import 'sample_feature/sample_item_list_view.dart';
@@ -77,6 +79,8 @@ class MyApp extends StatelessWidget {
                     return const SampleItemListView();
                   case ProfilePage.routeName:
                     return const ProfilePage();
+                  case TaskPage.routeName:
+                    return const TaskPage();
                   case AuthPage.routeName:
                   default:
                     return const AuthPage();
