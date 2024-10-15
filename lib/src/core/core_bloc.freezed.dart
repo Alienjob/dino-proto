@@ -20,18 +20,24 @@ mixin _$CoreEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String? token) setToken,
+    required TResult Function() serverStarted,
+    required TResult Function(int flips) webPageData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String? token)? setToken,
+    TResult? Function()? serverStarted,
+    TResult? Function(int flips)? webPageData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String? token)? setToken,
+    TResult Function()? serverStarted,
+    TResult Function(int flips)? webPageData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$CoreEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_CoreEventInit value) init,
     required TResult Function(_CoreEventSetToken value) setToken,
+    required TResult Function(_CoreEventServerStarted value) serverStarted,
+    required TResult Function(_CoreEventWebPageData value) webPageData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CoreEventInit value)? init,
     TResult? Function(_CoreEventSetToken value)? setToken,
+    TResult? Function(_CoreEventServerStarted value)? serverStarted,
+    TResult? Function(_CoreEventWebPageData value)? webPageData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CoreEventInit value)? init,
     TResult Function(_CoreEventSetToken value)? setToken,
+    TResult Function(_CoreEventServerStarted value)? serverStarted,
+    TResult Function(_CoreEventWebPageData value)? webPageData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +125,8 @@ class _$CoreEventInitImpl implements _CoreEventInit {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String? token) setToken,
+    required TResult Function() serverStarted,
+    required TResult Function(int flips) webPageData,
   }) {
     return init();
   }
@@ -122,6 +136,8 @@ class _$CoreEventInitImpl implements _CoreEventInit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String? token)? setToken,
+    TResult? Function()? serverStarted,
+    TResult? Function(int flips)? webPageData,
   }) {
     return init?.call();
   }
@@ -131,6 +147,8 @@ class _$CoreEventInitImpl implements _CoreEventInit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String? token)? setToken,
+    TResult Function()? serverStarted,
+    TResult Function(int flips)? webPageData,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -144,6 +162,8 @@ class _$CoreEventInitImpl implements _CoreEventInit {
   TResult map<TResult extends Object?>({
     required TResult Function(_CoreEventInit value) init,
     required TResult Function(_CoreEventSetToken value) setToken,
+    required TResult Function(_CoreEventServerStarted value) serverStarted,
+    required TResult Function(_CoreEventWebPageData value) webPageData,
   }) {
     return init(this);
   }
@@ -153,6 +173,8 @@ class _$CoreEventInitImpl implements _CoreEventInit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CoreEventInit value)? init,
     TResult? Function(_CoreEventSetToken value)? setToken,
+    TResult? Function(_CoreEventServerStarted value)? serverStarted,
+    TResult? Function(_CoreEventWebPageData value)? webPageData,
   }) {
     return init?.call(this);
   }
@@ -162,6 +184,8 @@ class _$CoreEventInitImpl implements _CoreEventInit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CoreEventInit value)? init,
     TResult Function(_CoreEventSetToken value)? setToken,
+    TResult Function(_CoreEventServerStarted value)? serverStarted,
+    TResult Function(_CoreEventWebPageData value)? webPageData,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -242,6 +266,8 @@ class _$CoreEventSetTokenImpl implements _CoreEventSetToken {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String? token) setToken,
+    required TResult Function() serverStarted,
+    required TResult Function(int flips) webPageData,
   }) {
     return setToken(token);
   }
@@ -251,6 +277,8 @@ class _$CoreEventSetTokenImpl implements _CoreEventSetToken {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String? token)? setToken,
+    TResult? Function()? serverStarted,
+    TResult? Function(int flips)? webPageData,
   }) {
     return setToken?.call(token);
   }
@@ -260,6 +288,8 @@ class _$CoreEventSetTokenImpl implements _CoreEventSetToken {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String? token)? setToken,
+    TResult Function()? serverStarted,
+    TResult Function(int flips)? webPageData,
     required TResult orElse(),
   }) {
     if (setToken != null) {
@@ -273,6 +303,8 @@ class _$CoreEventSetTokenImpl implements _CoreEventSetToken {
   TResult map<TResult extends Object?>({
     required TResult Function(_CoreEventInit value) init,
     required TResult Function(_CoreEventSetToken value) setToken,
+    required TResult Function(_CoreEventServerStarted value) serverStarted,
+    required TResult Function(_CoreEventWebPageData value) webPageData,
   }) {
     return setToken(this);
   }
@@ -282,6 +314,8 @@ class _$CoreEventSetTokenImpl implements _CoreEventSetToken {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CoreEventInit value)? init,
     TResult? Function(_CoreEventSetToken value)? setToken,
+    TResult? Function(_CoreEventServerStarted value)? serverStarted,
+    TResult? Function(_CoreEventWebPageData value)? webPageData,
   }) {
     return setToken?.call(this);
   }
@@ -291,6 +325,8 @@ class _$CoreEventSetTokenImpl implements _CoreEventSetToken {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CoreEventInit value)? init,
     TResult Function(_CoreEventSetToken value)? setToken,
+    TResult Function(_CoreEventServerStarted value)? serverStarted,
+    TResult Function(_CoreEventWebPageData value)? webPageData,
     required TResult orElse(),
   }) {
     if (setToken != null) {
@@ -310,8 +346,275 @@ abstract class _CoreEventSetToken implements CoreEvent {
 }
 
 /// @nodoc
+abstract class _$$CoreEventServerStartedImplCopyWith<$Res> {
+  factory _$$CoreEventServerStartedImplCopyWith(
+          _$CoreEventServerStartedImpl value,
+          $Res Function(_$CoreEventServerStartedImpl) then) =
+      __$$CoreEventServerStartedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CoreEventServerStartedImplCopyWithImpl<$Res>
+    extends _$CoreEventCopyWithImpl<$Res, _$CoreEventServerStartedImpl>
+    implements _$$CoreEventServerStartedImplCopyWith<$Res> {
+  __$$CoreEventServerStartedImplCopyWithImpl(
+      _$CoreEventServerStartedImpl _value,
+      $Res Function(_$CoreEventServerStartedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CoreEventServerStartedImpl implements _CoreEventServerStarted {
+  const _$CoreEventServerStartedImpl();
+
+  @override
+  String toString() {
+    return 'CoreEvent.serverStarted()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CoreEventServerStartedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String? token) setToken,
+    required TResult Function() serverStarted,
+    required TResult Function(int flips) webPageData,
+  }) {
+    return serverStarted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String? token)? setToken,
+    TResult? Function()? serverStarted,
+    TResult? Function(int flips)? webPageData,
+  }) {
+    return serverStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String? token)? setToken,
+    TResult Function()? serverStarted,
+    TResult Function(int flips)? webPageData,
+    required TResult orElse(),
+  }) {
+    if (serverStarted != null) {
+      return serverStarted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CoreEventInit value) init,
+    required TResult Function(_CoreEventSetToken value) setToken,
+    required TResult Function(_CoreEventServerStarted value) serverStarted,
+    required TResult Function(_CoreEventWebPageData value) webPageData,
+  }) {
+    return serverStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CoreEventInit value)? init,
+    TResult? Function(_CoreEventSetToken value)? setToken,
+    TResult? Function(_CoreEventServerStarted value)? serverStarted,
+    TResult? Function(_CoreEventWebPageData value)? webPageData,
+  }) {
+    return serverStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CoreEventInit value)? init,
+    TResult Function(_CoreEventSetToken value)? setToken,
+    TResult Function(_CoreEventServerStarted value)? serverStarted,
+    TResult Function(_CoreEventWebPageData value)? webPageData,
+    required TResult orElse(),
+  }) {
+    if (serverStarted != null) {
+      return serverStarted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CoreEventServerStarted implements CoreEvent {
+  const factory _CoreEventServerStarted() = _$CoreEventServerStartedImpl;
+}
+
+/// @nodoc
+abstract class _$$CoreEventWebPageDataImplCopyWith<$Res> {
+  factory _$$CoreEventWebPageDataImplCopyWith(_$CoreEventWebPageDataImpl value,
+          $Res Function(_$CoreEventWebPageDataImpl) then) =
+      __$$CoreEventWebPageDataImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int flips});
+}
+
+/// @nodoc
+class __$$CoreEventWebPageDataImplCopyWithImpl<$Res>
+    extends _$CoreEventCopyWithImpl<$Res, _$CoreEventWebPageDataImpl>
+    implements _$$CoreEventWebPageDataImplCopyWith<$Res> {
+  __$$CoreEventWebPageDataImplCopyWithImpl(_$CoreEventWebPageDataImpl _value,
+      $Res Function(_$CoreEventWebPageDataImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? flips = null,
+  }) {
+    return _then(_$CoreEventWebPageDataImpl(
+      flips: null == flips
+          ? _value.flips
+          : flips // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CoreEventWebPageDataImpl implements _CoreEventWebPageData {
+  const _$CoreEventWebPageDataImpl({required this.flips});
+
+  @override
+  final int flips;
+
+  @override
+  String toString() {
+    return 'CoreEvent.webPageData(flips: $flips)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CoreEventWebPageDataImpl &&
+            (identical(other.flips, flips) || other.flips == flips));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, flips);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CoreEventWebPageDataImplCopyWith<_$CoreEventWebPageDataImpl>
+      get copyWith =>
+          __$$CoreEventWebPageDataImplCopyWithImpl<_$CoreEventWebPageDataImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String? token) setToken,
+    required TResult Function() serverStarted,
+    required TResult Function(int flips) webPageData,
+  }) {
+    return webPageData(flips);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String? token)? setToken,
+    TResult? Function()? serverStarted,
+    TResult? Function(int flips)? webPageData,
+  }) {
+    return webPageData?.call(flips);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String? token)? setToken,
+    TResult Function()? serverStarted,
+    TResult Function(int flips)? webPageData,
+    required TResult orElse(),
+  }) {
+    if (webPageData != null) {
+      return webPageData(flips);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CoreEventInit value) init,
+    required TResult Function(_CoreEventSetToken value) setToken,
+    required TResult Function(_CoreEventServerStarted value) serverStarted,
+    required TResult Function(_CoreEventWebPageData value) webPageData,
+  }) {
+    return webPageData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CoreEventInit value)? init,
+    TResult? Function(_CoreEventSetToken value)? setToken,
+    TResult? Function(_CoreEventServerStarted value)? serverStarted,
+    TResult? Function(_CoreEventWebPageData value)? webPageData,
+  }) {
+    return webPageData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CoreEventInit value)? init,
+    TResult Function(_CoreEventSetToken value)? setToken,
+    TResult Function(_CoreEventServerStarted value)? serverStarted,
+    TResult Function(_CoreEventWebPageData value)? webPageData,
+    required TResult orElse(),
+  }) {
+    if (webPageData != null) {
+      return webPageData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CoreEventWebPageData implements CoreEvent {
+  const factory _CoreEventWebPageData({required final int flips}) =
+      _$CoreEventWebPageDataImpl;
+
+  int get flips;
+  @JsonKey(ignore: true)
+  _$$CoreEventWebPageDataImplCopyWith<_$CoreEventWebPageDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CoreState {
   String? get token => throw _privateConstructorUsedError;
+  ServerStatus get serverStatus => throw _privateConstructorUsedError;
+  int get flips => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CoreStateCopyWith<CoreState> get copyWith =>
@@ -323,7 +626,7 @@ abstract class $CoreStateCopyWith<$Res> {
   factory $CoreStateCopyWith(CoreState value, $Res Function(CoreState) then) =
       _$CoreStateCopyWithImpl<$Res, CoreState>;
   @useResult
-  $Res call({String? token});
+  $Res call({String? token, ServerStatus serverStatus, int flips});
 }
 
 /// @nodoc
@@ -340,12 +643,22 @@ class _$CoreStateCopyWithImpl<$Res, $Val extends CoreState>
   @override
   $Res call({
     Object? token = freezed,
+    Object? serverStatus = null,
+    Object? flips = null,
   }) {
     return _then(_value.copyWith(
       token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
+      serverStatus: null == serverStatus
+          ? _value.serverStatus
+          : serverStatus // ignore: cast_nullable_to_non_nullable
+              as ServerStatus,
+      flips: null == flips
+          ? _value.flips
+          : flips // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -358,7 +671,7 @@ abstract class _$$CoreStateLoadedImplCopyWith<$Res>
       __$$CoreStateLoadedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? token});
+  $Res call({String? token, ServerStatus serverStatus, int flips});
 }
 
 /// @nodoc
@@ -373,12 +686,22 @@ class __$$CoreStateLoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? token = freezed,
+    Object? serverStatus = null,
+    Object? flips = null,
   }) {
     return _then(_$CoreStateLoadedImpl(
       token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
+      serverStatus: null == serverStatus
+          ? _value.serverStatus
+          : serverStatus // ignore: cast_nullable_to_non_nullable
+              as ServerStatus,
+      flips: null == flips
+          ? _value.flips
+          : flips // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -386,14 +709,24 @@ class __$$CoreStateLoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CoreStateLoadedImpl implements _CoreStateLoaded {
-  _$CoreStateLoadedImpl({required this.token});
+  _$CoreStateLoadedImpl(
+      {this.token = null,
+      this.serverStatus = ServerStatus.stopped,
+      this.flips = 0});
 
   @override
+  @JsonKey()
   final String? token;
+  @override
+  @JsonKey()
+  final ServerStatus serverStatus;
+  @override
+  @JsonKey()
+  final int flips;
 
   @override
   String toString() {
-    return 'CoreState(token: $token)';
+    return 'CoreState(token: $token, serverStatus: $serverStatus, flips: $flips)';
   }
 
   @override
@@ -401,11 +734,14 @@ class _$CoreStateLoadedImpl implements _CoreStateLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CoreStateLoadedImpl &&
-            (identical(other.token, token) || other.token == token));
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.serverStatus, serverStatus) ||
+                other.serverStatus == serverStatus) &&
+            (identical(other.flips, flips) || other.flips == flips));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, token);
+  int get hashCode => Object.hash(runtimeType, token, serverStatus, flips);
 
   @JsonKey(ignore: true)
   @override
@@ -416,11 +752,17 @@ class _$CoreStateLoadedImpl implements _CoreStateLoaded {
 }
 
 abstract class _CoreStateLoaded implements CoreState {
-  factory _CoreStateLoaded({required final String? token}) =
-      _$CoreStateLoadedImpl;
+  factory _CoreStateLoaded(
+      {final String? token,
+      final ServerStatus serverStatus,
+      final int flips}) = _$CoreStateLoadedImpl;
 
   @override
   String? get token;
+  @override
+  ServerStatus get serverStatus;
+  @override
+  int get flips;
   @override
   @JsonKey(ignore: true)
   _$$CoreStateLoadedImplCopyWith<_$CoreStateLoadedImpl> get copyWith =>

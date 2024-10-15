@@ -24,7 +24,10 @@ dependencies:
   injectable: ^2.4.2
   json_annotation: ^4.9.0
   logger: ^2.4.0
+  path_provider: ^2.1.4
   retrofit: ^4.4.1
+  shelf_static: ^1.1.3
+  webview_flutter: ^4.8.0
 
 dev_dependencies:
   flutter_test:
@@ -47,4 +50,6 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/images/illustrations/
+    - assets/html/
+    - assets/html/images/
     
